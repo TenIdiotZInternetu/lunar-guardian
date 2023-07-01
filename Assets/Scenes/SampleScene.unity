@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 295274120}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.83000004, y: 1.0899991, z: 0.0000000039100856}
+  m_LocalPosition: {x: -0.8129209, y: 3.3299963, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -170,13 +170,13 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -1.4231247, y: 1.9956859, z: 0}
-      - {x: -1.9716212, y: 0.23807408, z: 0}
-      - {x: -0.3310424, y: -0.8797914, z: 0}
-      - {x: 0.79042745, y: -0.5464835, z: 0}
+      - {x: -1.0450071, y: 1.3433542, z: 0}
+      - {x: -1.5935036, y: -0.41425765, z: 0}
+      - {x: -0.21856216, y: -1.8056526, z: 0}
+      - {x: 1.168545, y: -1.1988152, z: 0}
       isClosed: 0
       space: 1
-      controlMode: 0
+      controlMode: 2
       autoControlLength: 0.3
       boundsUpToDate: 0
       bounds:
@@ -195,16 +195,16 @@ MonoBehaviour:
     showPerSegmentBounds: 0
     displayAnchorPoints: 1
     displayControlPoints: 1
-    bezierHandleScale: 2
+    bezierHandleScale: 4
     globalDisplaySettingsFoldout: 0
     keepConstantHandleSize: 0
     showNormalsInVertexMode: 0
     showBezierPathInVertexMode: 0
-    showDisplayOptions: 0
+    showDisplayOptions: 1
     showPathOptions: 1
     showVertexPathDisplayOptions: 0
     showVertexPathOptions: 1
-    showNormals: 0
+    showNormals: 1
     showNormalsHelpInfo: 0
     tabIndex: 0
   initialized: 1
@@ -495,31 +495,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1391757990475751863, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.81
+      value: -3.907
       objectReference: {fileID: 0}
     - target: {fileID: 1391757990475751863, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3999999
+      value: 3.31
       objectReference: {fileID: 0}
     - target: {fileID: 1391757990475751863, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.110000014
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 1391757990475751863, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9997515
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1391757990475751863, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.022293998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1391757990475751863, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1391757990475751863, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1391757990475751863, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -561,11 +561,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf48c059bcf9b54b857c7bf0cae93b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0
-  Rotation: 0
-  SpawnTime: 0
-  ShotCooldown: 0
+  rotation: 0
+  spawnTime: 0
+  shotCooldown: 1000
   _projectile: {fileID: 7560168355778024457}
+--- !u!114 &699690007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699690003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b162900bbc9648ee98474bda2243df08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 295274122}
+  speed: 1
+  acceleration: 0
 --- !u!1 &1204887193
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +772,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363521001}
-  m_LocalRotation: {x: -0.022293998, y: -0, z: -0, w: 0.9997515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.29, y: -0.21, z: 0}
   m_LocalScale: {x: 2.1725001, y: 2.0751843, z: 1.9054778}
   m_ConstrainProportionsScale: 1
@@ -769,7 +783,7 @@ Transform:
   - {fileID: 2052616067}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -2.555, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1423955586
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753206470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0196915, y: 0.157, z: -0}
+  m_LocalPosition: {x: -1.89, y: -1.42, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1363,8 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf48c059bcf9b54b857c7bf0cae93b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0
-  Rotation: 0
-  SpawnTime: 0
-  ShotCooldown: 0
+  rotation: 0
+  spawnTime: 0
+  shotCooldown: 0
   _projectile: {fileID: 7560168355778024457}

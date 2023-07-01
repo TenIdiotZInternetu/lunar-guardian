@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MovementPatterns/IMovementPattern.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -84,6 +87,8 @@
       <workItem from="1680698648481" duration="553000" />
       <workItem from="1682322524390" duration="3144000" />
       <workItem from="1682422494365" duration="394000" />
+      <workItem from="1688150348746" duration="1235000" />
+      <workItem from="1688237029557" duration="3869000" />
     </task>
     <servers />
   </component>
