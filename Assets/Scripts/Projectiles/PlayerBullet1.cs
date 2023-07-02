@@ -20,7 +20,7 @@ namespace Projectiles
         // Start is called before the first frame update
         void Start()
         {
-            _movementPattern = new LinearMovementPattern(movementSpeed, direction);
+            _movementPattern = GetComponent<IMovementPattern>();
         }
 
         // Update is called once per frame
