@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace MovementPatterns
@@ -12,14 +13,24 @@ namespace MovementPatterns
         private float directionInDegrees;
         private Vector3 direction;
 
-        void Start()
-        {
-            direction = Quaternion.Euler(0, 0, directionInDegrees) * Vector3.up;
-        }
         
         public Vector3 GetNewPosition(Vector3 currentPosition)
         {
-            return currentPosition + direction.normalized * (speed * Time.deltaTime);
+            speed += acceleration * Time.deltaTime;
+            return currentPosition + direction * (speed * Time.deltaTime);
+        }
+
+        void OnValidate()
+        {
+            direction = Quaternion.Euler(0, 0, directionInDegrees) * Vector3.up;
+            direction = direction.normalized;
+        }
+        
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.green;
+            Vector3 position = transform.position;
+            Gizmos.DrawLine(position, position + direction);
         }
     }
 }
