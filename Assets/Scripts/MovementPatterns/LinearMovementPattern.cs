@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MovementPatterns
 {
-    public class LinearMovementPattern : MonoBehaviour, IMovementPattern
+    public class LinearMovementPattern : MonoBehaviour
     {
         [SerializeField]
         private float speed;
@@ -11,14 +11,9 @@ namespace MovementPatterns
         private float acceleration;
         [SerializeField]
         private float directionInDegrees;
+        
         private Vector3 direction;
 
-        
-        public Vector3 GetNewPosition(Vector3 currentPosition)
-        {
-            speed += acceleration * Time.deltaTime;
-            return currentPosition + direction * (speed * Time.deltaTime);
-        }
 
         void Start()
         {
@@ -29,6 +24,12 @@ namespace MovementPatterns
         {
             direction = Quaternion.Euler(0, 0, directionInDegrees) * Vector3.up;
             direction = direction.normalized;
+        }
+        
+        void Update()
+        {
+            speed += acceleration * Time.deltaTime;
+            transform.position += direction * (speed * Time.deltaTime);
         }
         
         void OnDrawGizmosSelected()

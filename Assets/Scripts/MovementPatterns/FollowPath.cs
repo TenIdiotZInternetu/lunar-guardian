@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MovementPatterns
 {
-    public class FollowPath : MonoBehaviour, IMovementPattern
+    public class FollowPath : MonoBehaviour
     {
         public PathCreator path;
         public float speed = 1;
@@ -12,11 +12,11 @@ namespace MovementPatterns
         
         private float _distanceTravelled = 0;
 
-        public Vector3 GetNewPosition(Vector3 currentPosition)
+        void Update()
         {
             speed += acceleration * Time.deltaTime;
             _distanceTravelled += speed * Time.deltaTime;
-            return path.path.GetPointAtDistance(_distanceTravelled);
+            transform.position = path.path.GetPointAtDistance(_distanceTravelled);
         }
     }
 }

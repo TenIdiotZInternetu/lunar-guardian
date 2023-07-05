@@ -14,21 +14,14 @@ public class Drone1 : MonoBehaviour
     private GameObject _projectile;
     private float _cooldownTimer = 0;
     private bool _isActive = false;
-    
-    private IMovementPattern _movementPattern;
 
     // Start is called before the first frame update
     void OnEnable()
     {
-        _movementPattern = GetComponent<IMovementPattern>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeSinceLevelLoad >= spawnTime) _isActive = true;
-        if (!_isActive) return;
-        
-        transform.position = _movementPattern.GetNewPosition(transform.position);
     }
 }
