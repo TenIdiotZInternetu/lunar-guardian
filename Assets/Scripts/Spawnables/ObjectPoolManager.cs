@@ -7,7 +7,7 @@ public class ObjectPoolManager : MonoBehaviour
     public static ObjectPoolManager Instance;
     public List<ObjectPool> objectPools;
     
-    private Dictionary<string, ObjectPool> _poolTable = new();
+    private static Dictionary<string, ObjectPool> _poolTable = new();
 
     private void Start()
     {
@@ -25,11 +25,17 @@ public class ObjectPoolManager : MonoBehaviour
         }
     }
     
-    public GameObject Spawn(GameObject prefab, Vector3 position, float rotation)
+    public static GameObject Spawn(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         GameObject obj = _poolTable[prefab.name].Extract();
         obj.transform.position = position;
-        obj.transform.rotation = Quaternion.Euler(0, 0, rotation);
+        obj.transform.rotation = rotation;
         return obj;
     }
+
+    public static GameObject Spawn(GameObject prefab, Vector3 position, float rotation)
+    {
+        return Spawn(prefab, position, Quaternion.Euler(0, 0, rotation));
+    }
+
 }

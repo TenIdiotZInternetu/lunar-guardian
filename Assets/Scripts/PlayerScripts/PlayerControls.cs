@@ -6,19 +6,19 @@ namespace PlayerScripts
 {
     public class PlayerControls : MonoBehaviour
     {
+        public static PlayerControls Instance;
+        
         public float MovementSpeed;
         public GameObject Projectile;
         
         private Rigidbody2D _rigidbody;
-        
-        public event EventHandler<EventArgs> PlayerShoots;
+        public static event EventHandler<EventArgs> PlayerShoots;
 
         // Start is called before the first frame update
         void Start()
         {
+            Instance = this;
             _rigidbody = GetComponent<Rigidbody2D>();
-            IPlayerProjectile projectile = Projectile.GetComponent<IPlayerProjectile>();
-            PlayerShoots += projectile.OnPlayerShoots;
         }
 
         // Update is called once per frame
