@@ -18,7 +18,7 @@ public class Drone1 : MonoBehaviour
     private IMovementPattern _movementPattern;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         _movementPattern = GetComponent<IMovementPattern>();
     }
@@ -30,6 +30,5 @@ public class Drone1 : MonoBehaviour
         if (!_isActive) return;
         
         transform.position = _movementPattern.GetNewPosition(transform.position);
-        
     }
 }

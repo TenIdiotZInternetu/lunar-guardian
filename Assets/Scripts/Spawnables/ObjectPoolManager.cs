@@ -37,5 +37,4 @@ public class ObjectPoolManager : MonoBehaviour
     {
         return Spawn(prefab, position, Quaternion.Euler(0, 0, rotation));
     }
-
 }

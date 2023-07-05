@@ -20,6 +20,11 @@ namespace MovementPatterns
             return currentPosition + direction * (speed * Time.deltaTime);
         }
 
+        void Start()
+        {
+            OnValidate();
+        }
+
         void OnValidate()
         {
             direction = Quaternion.Euler(0, 0, directionInDegrees) * Vector3.up;
