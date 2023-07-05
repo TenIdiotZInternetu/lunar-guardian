@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using MovementPatterns;
+using Spawnables;
 using UnityEngine;
 
 public class Drone1 : MonoBehaviour
 {
-    public float rotation;
-
     public float spawnTime;
     public float shotCooldown;
 

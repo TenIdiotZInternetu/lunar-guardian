@@ -11,6 +11,7 @@ public class ObjectPool
     public int maxPoolSize;
     
     public int poolSize => pool.Count;
+    public string Key => prefab.name;
     
     private Queue<GameObject> pool = new();
     

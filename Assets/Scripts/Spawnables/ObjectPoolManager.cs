@@ -15,11 +15,12 @@ public class ObjectPoolManager : MonoBehaviour
         
         foreach (var pool in objectPools)
         {
-            _poolTable.Add(pool.prefab.name, pool);
+            _poolTable.Add(pool.Key, pool);
             
             for (int i = 0 ; i < pool.initialPoolSize ; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
+                obj.name = pool.Key;
                 pool.Enqueue(obj);
             }
         }
