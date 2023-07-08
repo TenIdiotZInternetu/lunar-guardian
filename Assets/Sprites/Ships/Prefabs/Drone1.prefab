@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1391757990475751863}
   - component: {fileID: 8410922989058389944}
   - component: {fileID: 5963091954059393739}
-  - component: {fileID: 981746018144004201}
   m_Layer: 0
   m_Name: Drone1
   m_TagString: Untagged
@@ -100,19 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnTime: 0
   shotCooldown: 1.5
+  movementPattern: {fileID: 0}
   _projectile: {fileID: 7850864335101545919, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
---- !u!114 &981746018144004201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7121800313537416009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b162900bbc9648ee98474bda2243df08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path: {fileID: 0}
-  speed: 1
-  acceleration: 0

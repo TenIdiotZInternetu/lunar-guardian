@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
     public static ObjectPoolManager Instance;
+    public GameObject Container;
     public List<ObjectPool> objectPools;
     
     private static readonly Dictionary<string, ObjectPool> PoolTable = new();
@@ -19,9 +20,10 @@ public class ObjectPoolManager : MonoBehaviour
             
             for (int i = 0 ; i < pool.initialPoolSize ; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
+                GameObject obj = Instantiate(pool.prefab, Container.transform, false);
                 obj.name = pool.Key;
                 pool.Enqueue(obj);
+                obj.SetActive(false);
             }
         }
     }
