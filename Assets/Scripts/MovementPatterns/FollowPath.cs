@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace MovementPatterns
 {
-    public class FollowPath : MonoBehaviour
+    public class FollowPath : MovementPattern
     {
         public PathCreator path;
         public float speed = 1;
         public float acceleration = 0;
-        
+    
         private float _distanceTravelled = 0;
 
         void Update()

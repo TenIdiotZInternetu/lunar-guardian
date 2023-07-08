@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
 using PlayerScripts;
-using Projectiles;
 using UnityEngine;
 
-namespace Spawnables
+namespace Spawnables.Projectiles
 {
     public class PlayerBulletSpawner : MonoBehaviour
     {
@@ -12,7 +10,7 @@ namespace Spawnables
         public float Cooldown;
 
         private float _timeOfLastShot;
-        
+    
         public void Awake()
         {
             PlayerControls.PlayerShoots += OnPlayerShoots;
@@ -21,8 +19,8 @@ namespace Spawnables
         public void OnPlayerShoots(object sender, EventArgs e)
         {
             if (Time.time - _timeOfLastShot <= Cooldown) return;
-            
-            GameObject bullet = ObjectPoolManager.Spawn(Projectile, transform.position, Quaternion.identity);
+        
+            ObjectPoolManager.Spawn(Projectile, transform.position, Quaternion.identity);
             _timeOfLastShot = Time.time;
         }
     }

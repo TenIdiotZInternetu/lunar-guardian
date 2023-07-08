@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Spawnables;
 using UnityEngine;
 
 public class DespawnCollider : MonoBehaviour

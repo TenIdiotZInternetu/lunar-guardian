@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace MovementPatterns
 {
-    public class LinearMovementPattern : MonoBehaviour
+    public class LinearMovementPattern : MovementPattern
     {
         [SerializeField]
         private float speed;
@@ -11,7 +11,7 @@ namespace MovementPatterns
         private float acceleration;
         [SerializeField]
         private float directionInDegrees;
-        
+    
         private Vector3 direction;
 
 
@@ -25,13 +25,13 @@ namespace MovementPatterns
             direction = Quaternion.Euler(0, 0, directionInDegrees) * Vector3.up;
             direction = direction.normalized;
         }
-        
+    
         void Update()
         {
             speed += acceleration * Time.deltaTime;
             transform.position += direction * (speed * Time.deltaTime);
         }
-        
+    
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
