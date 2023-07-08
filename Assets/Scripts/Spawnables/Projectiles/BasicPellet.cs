@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
 using MovementPatterns;
-using Spawnables;
 using UnityEngine;
 
-namespace Projectiles
+namespace Spawnables.Projectiles
 {
-    public class BasicPellet : MonoBehaviour
+    public class BasicPellet : MonoBehaviour, ISpawnable
     {
         public float Damage;
 
@@ -19,5 +16,7 @@ namespace Projectiles
         void Update()
         {
         }
+
+        public MovementPattern MovementPattern { get; set; }
     }
 }

@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using MovementPatterns;
-using Spawnables;
 using UnityEngine;
 
-public class Drone1 : MonoBehaviour
+public class Drone1 : MonoBehaviour, ISpawnable
 {
     public float spawnTime;
     public float shotCooldown;
+    
+    public MovementPattern movementPattern;
 
     [SerializeField]
     private GameObject _projectile;
@@ -23,4 +22,6 @@ public class Drone1 : MonoBehaviour
     void Update()
     {
     }
+
+    public MovementPattern MovementPattern { get; set; }
 }

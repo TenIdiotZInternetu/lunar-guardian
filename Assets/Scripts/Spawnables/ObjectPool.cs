@@ -11,18 +11,21 @@ public class ObjectPool
     public int maxPoolSize;
     
     public int poolSize => pool.Count;
-    public string Key => prefab.name;
-    
+    public string Key => prefab.GetComponent<ISpawnable>().GetType().Name;
     private Queue<GameObject> pool = new();
-    
-    public void Enqueue(GameObject obj) => pool.Enqueue(obj);
+
+    public void Enqueue(GameObject obj)
+    {
+        pool.Enqueue(obj);
+    }
     
     public GameObject Extract()
     {
         GameObject obj;
 
         obj = pool.Count == 0 ?
-            Object.Instantiate(prefab) : pool.Dequeue();
+            Object.Instantiate(prefab) : 
+            pool.Dequeue();
         
         return obj;
     }
