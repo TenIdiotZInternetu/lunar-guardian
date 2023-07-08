@@ -4,8 +4,8 @@ using UnityEngine;
 namespace MovementPatterns
 {
     [Serializable]
-    public class MovementPattern : MonoBehaviour
+    public abstract class MovementPattern : MonoBehaviour
     {
-    
+        public abstract Vector3 GetNextPosition(Vector3 currentPosition);
     }
 }

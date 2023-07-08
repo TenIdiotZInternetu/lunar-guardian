@@ -12,11 +12,11 @@ namespace MovementPatterns
     
         private float _distanceTravelled = 0;
 
-        void Update()
+        public override Vector3 GetNextPosition(Vector3 currentPosition)
         {
             speed += acceleration * Time.deltaTime;
             _distanceTravelled += speed * Time.deltaTime;
-            transform.position = path.path.GetPointAtDistance(_distanceTravelled);
+            return path.path.GetPointAtDistance(_distanceTravelled);
         }
     }
 }

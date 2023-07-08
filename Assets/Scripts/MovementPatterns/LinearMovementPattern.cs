@@ -25,11 +25,11 @@ namespace MovementPatterns
             direction = Quaternion.Euler(0, 0, directionInDegrees) * Vector3.up;
             direction = direction.normalized;
         }
-    
-        void Update()
+
+        public override Vector3 GetNextPosition(Vector3 currentPosition)
         {
             speed += acceleration * Time.deltaTime;
-            transform.position += direction * (speed * Time.deltaTime);
+            return currentPosition + direction * (speed * Time.deltaTime);
         }
     
         void OnDrawGizmosSelected()

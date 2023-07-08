@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using MovementPatterns;
 using UnityEngine;
 
 public class EnemySet : MonoBehaviour
@@ -15,7 +14,6 @@ public class EnemySet : MonoBehaviour
         Vector3 spawnPoint = spawner.transform.position;
         
         var spawnedEnemy = ObjectPoolManager.Spawn(enemy, spawnPoint, enemy.transform.rotation);
-        
         _index++;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MovementPatterns;
+using Spawnables;
 using UnityEngine;
 
 public class ObjectPoolManager : MonoBehaviour
@@ -30,11 +31,11 @@ public class ObjectPoolManager : MonoBehaviour
     
     public static GameObject Spawn(GameObject prefab, Vector3 position, Quaternion rotation)
     {
-        ISpawnable prefabScript = prefab.GetComponent<ISpawnable>();
+        Entity prefabScript = prefab.GetComponent<Entity>();
         
         if (prefabScript == null)
         {
-            Debug.LogError($"{prefab.name} is not of type ISpawnable");
+            Debug.LogError($"{prefab.name} is not a spawnable Entity");
             return null;
         }
         
@@ -44,7 +45,7 @@ public class ObjectPoolManager : MonoBehaviour
         obj.transform.position = position;
         obj.transform.rotation = rotation;
         
-        ISpawnable objScript = obj.GetComponent<ISpawnable>();
+        Entity objScript = obj.GetComponent<Entity>();
         objScript.MovementPattern = prefab.GetComponent<MovementPattern>();
 
         obj.SetActive(true);
