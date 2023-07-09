@@ -3,15 +3,17 @@ using UnityEngine;
 
 namespace PlayerScripts
 {
-    public class PlayerControls : MonoBehaviour
+    public class Player : MonoBehaviour
     {
-        public static PlayerControls Instance;
+        public static Player Instance;
         
         public float MovementSpeed;
         public GameObject Projectile;
         
         private Rigidbody2D _rigidbody;
-        public static event EventHandler<EventArgs> PlayerShoots;
+
+        private float _horizontalSpeed;
+        private float _verticalSpeed;
 
         // Start is called before the first frame update
         void Start()
@@ -21,19 +23,12 @@ namespace PlayerScripts
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-            float moveVertical = Input.GetAxis("Vertical");
-            bool shoots = Input.GetButton("Fire1");
-            bool dropBomb = Input.GetButton("Fire2");
-
-            Vector3 movementVector = new Vector3(moveHorizontal, moveVertical, 0);
+            Vector3 movementVector = new Vector3(Controls.MoveHorizontal, Controls.MoveVertical, 0);
             // transform.position += movementVector.normalized * (MovementSpeed * Time.deltaTime);
         
             _rigidbody.velocity = movementVector.normalized * (MovementSpeed);
-            
-            if (shoots) PlayerShoots?.Invoke(this, null);
         }
     }
 }

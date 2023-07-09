@@ -13,7 +13,7 @@ namespace Spawnables.Projectiles
     
         public void Awake()
         {
-            PlayerControls.PlayerShoots += OnPlayerShoots;
+            Controls.Action1 += OnPlayerShoots;
         }
 
         public void OnPlayerShoots(object sender, EventArgs e)

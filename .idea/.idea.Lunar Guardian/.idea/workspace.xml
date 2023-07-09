@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.6.4/Editor/Signals/SignalReceiverInspector.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -91,7 +94,7 @@
       <workItem from="1688649539462" duration="1566000" />
       <workItem from="1688743073280" duration="1871000" />
       <workItem from="1688823815776" duration="11210000" />
-      <workItem from="1688929710030" duration="1169000" />
+      <workItem from="1688929710030" duration="5995000" />
     </task>
     <servers />
   </component>
