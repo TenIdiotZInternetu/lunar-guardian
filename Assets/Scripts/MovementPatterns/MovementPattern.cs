@@ -1,4 +1,5 @@
 using System;
+using Spawnables;
 using UnityEngine;
 
 namespace MovementPatterns
@@ -6,6 +7,6 @@ namespace MovementPatterns
     [Serializable]
     public abstract class MovementPattern : MonoBehaviour
     {
-        public abstract Vector3 GetNextPosition(Vector3 currentPosition);
+        public abstract Vector3 GetNextPosition(Entity entity);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Spawnables;
 using UnityEngine;
 
 namespace MovementPatterns
@@ -26,8 +27,10 @@ namespace MovementPatterns
             direction = direction.normalized;
         }
 
-        public override Vector3 GetNextPosition(Vector3 currentPosition)
+        public override Vector3 GetNextPosition(Entity entity)
         {
+            Vector3 currentPosition = entity.transform.position;
+            
             speed += acceleration * Time.deltaTime;
             return currentPosition + direction * (speed * Time.deltaTime);
         }

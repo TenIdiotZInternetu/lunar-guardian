@@ -1,5 +1,6 @@
 using PathCreation;
 using PathCreation.Examples;
+using Spawnables;
 using UnityEngine;
 
 namespace MovementPatterns
@@ -9,14 +10,13 @@ namespace MovementPatterns
         public PathCreator path;
         public float speed = 1;
         public float acceleration = 0;
-    
-        private float _distanceTravelled = 0;
 
-        public override Vector3 GetNextPosition(Vector3 currentPosition)
+        public override Vector3 GetNextPosition(Entity entity)
         {
+            float distanceTravelled = speed * entity.LifeTime;
+            
             speed += acceleration * Time.deltaTime;
-            _distanceTravelled += speed * Time.deltaTime;
-            return path.path.GetPointAtDistance(_distanceTravelled);
+            return path.path.GetPointAtDistance(distanceTravelled);
         }
     }
 }

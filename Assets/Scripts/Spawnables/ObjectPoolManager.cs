@@ -40,16 +40,16 @@ public class ObjectPoolManager : MonoBehaviour
         }
         
         string prefabType = prefabScript.GetType().Name;
-        GameObject obj = PoolTable[prefabType].Extract();
+        GameObject spawnedObject = PoolTable[prefabType].Extract();
         
-        obj.transform.position = position;
-        obj.transform.rotation = rotation;
+        spawnedObject.transform.position = position;
+        spawnedObject.transform.rotation = rotation;
         
-        Entity objScript = obj.GetComponent<Entity>();
+        Entity objScript = spawnedObject.GetComponent<Entity>();
         objScript.MovementPattern = prefab.GetComponent<MovementPattern>();
 
-        obj.SetActive(true);
-        return obj;
+        spawnedObject.SetActive(true);
+        return spawnedObject;
     }
 
     public static GameObject Spawn(GameObject prefab, Vector3 position, float rotation)
@@ -60,7 +60,9 @@ public class ObjectPoolManager : MonoBehaviour
     public static GameObject Despawn(GameObject obj)
     {
         obj.SetActive(false);
-        PoolTable[obj.name].Enqueue(obj);
+        
+        string objType = obj.GetComponent<Entity>().GetType().Name;
+        PoolTable[objType].Enqueue(obj);
         
         return obj;
     }
