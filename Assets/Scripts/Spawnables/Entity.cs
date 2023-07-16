@@ -7,7 +7,7 @@ namespace Spawnables
     public class Entity : MonoBehaviour
     {
         public float LifeTime => Time.time - _timeEnabled;
-        public MovementPattern MovementPattern { get; set; }
+        public MovementPattern MovementPattern;
 
         private float _timeEnabled;
         
@@ -16,7 +16,7 @@ namespace Spawnables
             _timeEnabled = Time.time;
         }
         
-        protected void Update()
+        public void Update()
         {
             transform.position = MovementPattern.GetNextPosition(this);
         }

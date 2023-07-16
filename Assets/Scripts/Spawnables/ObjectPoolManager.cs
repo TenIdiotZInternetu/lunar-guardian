@@ -51,9 +51,9 @@ public class ObjectPoolManager : MonoBehaviour
         return spawnedObject;
     }
 
-    public static GameObject Spawn(GameObject prefab, Vector3 position, float rotation)
+    public static GameObject Spawn(GameObject prefab, Vector3 position, float rotationInAngles)
     {
-        return Spawn(prefab, position, Quaternion.Euler(0, 0, rotation));
+        return Spawn(prefab, position, Quaternion.Euler(0, 0, rotationInAngles));
     }
 
     public static GameObject Despawn(GameObject obj)

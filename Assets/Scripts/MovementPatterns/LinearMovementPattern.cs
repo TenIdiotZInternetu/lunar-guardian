@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace MovementPatterns
 {
+    [Serializable]
     public class LinearMovementPattern : MovementPattern
     {
         [SerializeField]

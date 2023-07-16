@@ -23,7 +23,7 @@ namespace Spawnables.Projectiles
 
         public void Shoot(object sender, EventArgs e)
         {
-            var shooter = sender as GameObject;
+            GameObject shooter = ((MonoBehaviour)sender).gameObject;
             
             if (_bulletsShot >= bulletsInCharge) Recharge();
             if (Time.time - _timeOfLastShot <= cooldown) return;

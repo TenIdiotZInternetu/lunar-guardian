@@ -30,9 +30,10 @@ public class Enemy : Entity
         }
     }
     
-    protected void Update()
+    public void Update()
     {
-        ShootsEvent.Invoke(this, null);
+        base.Update();
+        ShootsEvent?.Invoke(this, null);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
