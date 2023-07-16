@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 623370531}
+  - component: {fileID: 2315230303367493866}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -31,6 +32,23 @@ Transform:
   m_Father: {fileID: 5535961813080982652}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2315230303367493866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623370530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef13152d6444568bd9abcd6cc129da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 2970004856831243135, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
+  cooldown: 1.5
+  isPlayers: 0
+  chargeTime: 0
+  bulletsInCharge: 10000
 --- !u!1 &5535961813080982655
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf48c059bcf9b54b857c7bf0cae93b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawners: []
+  maxHealth: 20
+  drops: []
 --- !u!61 &5535961813080982650
 BoxCollider2D:
   m_ObjectHideFlags: 0

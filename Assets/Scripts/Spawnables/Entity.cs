@@ -16,7 +16,7 @@ namespace Spawnables
             _timeEnabled = Time.time;
         }
         
-        void Update()
+        protected void Update()
         {
             transform.position = MovementPattern.GetNextPosition(this);
         }

@@ -23,10 +23,12 @@ namespace Spawnables.Projectiles
 
         public void Shoot(object sender, EventArgs e)
         {
+            var shooter = sender as GameObject;
+            
             if (_bulletsShot >= bulletsInCharge) Recharge();
             if (Time.time - _timeOfLastShot <= cooldown) return;
         
-            ObjectPoolManager.Spawn(projectile, transform.position, Quaternion.identity);
+            ObjectPoolManager.Spawn(projectile, transform.position, shooter.transform.rotation);
             _timeOfLastShot = Time.time;
             _bulletsShot++;
         }
