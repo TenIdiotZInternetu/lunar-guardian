@@ -11,6 +11,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.6.4/Editor/Signals/SignalReceiverInspector.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -95,6 +97,7 @@
       <workItem from="1688743073280" duration="1871000" />
       <workItem from="1688823815776" duration="11210000" />
       <workItem from="1688929710030" duration="6857000" />
+      <workItem from="1689509306995" duration="14782000" />
     </task>
     <servers />
   </component>
@@ -105,5 +108,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Spawnables/Projectiles/BulletSpawner.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\TIZI\Desktop\Kodiky\Unity\Lunar Guardian\Assets\Scripts\Spawnables\Projectiles\BulletSpawner.cs" initialLine="30" containingFunctionPresentation="method 'Shoot'">
+            <startOffsets>
+              <option value="800" />
+            </startOffsets>
+            <endOffsets>
+              <option value="884" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
