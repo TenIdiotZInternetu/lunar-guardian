@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Spawnables;
+using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -12,7 +13,8 @@ public class ObjectPool
     public int maxPoolSize;
     
     public int poolSize => pool.Count;
-    public string Key => prefab.GetComponent<Entity>().GetType().Name;
+    public string Key => prefab.GetComponent<Entity>().SpawnKey;
+    
     private Queue<GameObject> pool = new();
 
     public void Enqueue(GameObject obj)
