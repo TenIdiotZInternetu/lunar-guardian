@@ -59,6 +59,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2827163713954625330}
   - component: {fileID: 5113971499603433475}
+  - component: {fileID: 7199004027893636103}
   m_Layer: 0
   m_Name: Renderer
   m_TagString: Untagged
@@ -133,6 +134,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7199004027893636103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211708119844992390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e9cb7b9a99bda4c9f415b4ad0f7db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 5113971499603433475}
+  intensityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -8.891872
+      outSlope: -8.891872
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.08556372
+      value: 0.2391783
+      inSlope: -2.2013474
+      outSlope: -2.2013474
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2644085
+      outWeight: 0.26927412
+    - serializedVersion: 3
+      time: 0.21900062
+      value: 0.03659145
+      inSlope: -0.4312184
+      outSlope: -0.4312184
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3
+      value: 0
+      inSlope: -0.4517497
+      outSlope: -0.4517497
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 0.3
 --- !u!1 &5535961813080982655
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf48c059bcf9b54b857c7bf0cae93b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementPattern: {fileID: 0}
   SpawnKey: Drone1
   bulletSpawners:
   - {fileID: 2315230303367493866}
