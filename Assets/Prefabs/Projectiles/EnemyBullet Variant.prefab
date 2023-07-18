@@ -25,15 +25,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 28c63ae573127c64dbe3123289f73a93, type: 3}
     - target: {fileID: 1277335136096143668, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.16470589
       objectReference: {fileID: 0}
     - target: {fileID: 1277335136096143668, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.0627451
       objectReference: {fileID: 0}
     - target: {fileID: 1277335136096143668, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.9960785
       objectReference: {fileID: 0}
     - target: {fileID: 1277335136096143668, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -41,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3392590445183934696, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
       propertyPath: speed
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3392590445183934696, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
       propertyPath: followsRotation
@@ -98,6 +98,10 @@ PrefabInstance:
     - target: {fileID: 7850864335101545919, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
       propertyPath: m_Name
       value: EnemyBullet Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850864335101545919, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
+      propertyPath: m_TagString
+      value: EnemyProjectile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
