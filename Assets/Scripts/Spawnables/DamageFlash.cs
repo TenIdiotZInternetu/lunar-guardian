@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using PlayerScripts;
+using Spawnables;
 using UnityEngine;
 
 public class DamageFlash : MonoBehaviour
@@ -19,7 +20,8 @@ public class DamageFlash : MonoBehaviour
 
     private void Start()
     {
-        Controls.Action2 += OnHit;
+        Enemy enemy = GetComponentInParent<Enemy>();
+        enemy.GetsHitEvent += OnHit; 
         
         _material = new Material(spriteRenderer.material);
         spriteRenderer.material = _material;
@@ -27,8 +29,11 @@ public class DamageFlash : MonoBehaviour
         _material.SetFloat(Opacity, 0);
     }
     
-    public void OnHit(object sender, EventArgs e)
+    public void OnHit(object sender, GameObject projectile)
     {
+        StopCoroutine(Flash());
+        
+        _tintColor = projectile.GetComponent<SpriteRenderer>().color;
         _timeOfHit = Time.time;
         _material.SetColor(TintColor, _tintColor);
         
@@ -44,7 +49,6 @@ public class DamageFlash : MonoBehaviour
             timeElapsed = Time.time - _timeOfHit;
             float intensity = intensityCurve.Evaluate(timeElapsed);
             _material.SetFloat(Opacity, intensity);
-            Debug.Log(_material.GetFloat(Opacity));
             yield return null;
         }
     }
