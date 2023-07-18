@@ -17,7 +17,6 @@ namespace Spawnables
         void OnEnable()
         {
             _timeEnabled = Time.time;
-            
         }
         
         public void Update()

@@ -141,5 +141,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   acceleration: 0
-  followsSpawnerRotation: 1
-  directionInDegrees: -0
+  followsRotation: 1
+  directionInDegrees: 0

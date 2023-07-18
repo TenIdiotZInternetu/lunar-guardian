@@ -43,6 +43,14 @@ PrefabInstance:
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3392590445183934696, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
+      propertyPath: followsRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3392590445183934696, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
+      propertyPath: directionInDegrees
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3665265505851665802, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
       propertyPath: m_RootOrder
       value: 0
