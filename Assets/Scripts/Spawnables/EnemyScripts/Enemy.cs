@@ -19,30 +19,37 @@ public class Enemy : Entity
     public int maxHealth;
     public List<LootDrop> drops;
 
-    protected event EventHandler ShootsEvent;
+    public event EventHandler ShootsEvent;
+    public event EventHandler<GameObject> GetsHitEvent; 
+
     private int _currentHealth;
 
     void Start()
     {
+        _currentHealth = maxHealth;
+        
         foreach (var spawner in bulletSpawners)
         {
             ShootsEvent += spawner.Shoot;
         }
     }
     
-    public void Update()
+    void Update()
     {
         base.Update();
         ShootsEvent?.Invoke(this, null);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("yo");
         if (!other.gameObject.CompareTag("PlayerProjectile")) return;
         
         var projectile = other.gameObject.GetComponent<Projectile>();
         _currentHealth -= (int) projectile.Damage;
         if (_currentHealth <= 0) Die();
+        
+        GetsHitEvent?.Invoke(this, other.gameObject);
     }
 
     private void Die()
