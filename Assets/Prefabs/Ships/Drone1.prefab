@@ -153,33 +153,33 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -10.089753
-      outSlope: -10.089753
+      inSlope: -5.5985103
+      outSlope: -5.5985103
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.017570639
-      value: 0.8227166
-      inSlope: -27.290941
-      outSlope: -27.290941
+      time: 0.07073226
+      value: 0.60400474
+      inSlope: -10.953667
+      outSlope: -10.953667
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.81191295
+      inWeight: 0.16806695
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.07836755
-      value: 0.21426137
-      inSlope: -3.860998
-      outSlope: -3.860998
+      time: 0.13557255
+      value: 0.12843029
+      inSlope: -2.2647989
+      outSlope: -2.2647989
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.2644085
+      inWeight: 0.59149104
       outWeight: 0.13867673
     - serializedVersion: 3
-      time: 0.216193
-      value: 0.058747213
+      time: 0.35394937
+      value: 0.08090298
       inSlope: -0.4312184
       outSlope: -0.4312184
       tangentMode: 0
@@ -187,10 +187,10 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.3
+      time: 0.5
       value: 0
-      inSlope: -0.7009821
-      outSlope: -0.7009821
+      inSlope: -0.5539379
+      outSlope: -0.5539379
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -251,8 +251,10 @@ MonoBehaviour:
   SpawnKey: Drone1
   bulletSpawners:
   - {fileID: 2315230303367493866}
-  maxHealth: 20
-  drops: []
+  maxHealth: 8
+  drops:
+  - item: {fileID: 7237822895877949001, guid: f0e5ef04378a81f4f9423438749dc68e, type: 3}
+    dropChance: 0.5
 --- !u!61 &5535961813080982650
 BoxCollider2D:
   m_ObjectHideFlags: 0

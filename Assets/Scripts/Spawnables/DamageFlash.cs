@@ -9,7 +9,6 @@ public class DamageFlash : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public AnimationCurve intensityCurve;
-    public float duration;
 
     private Material _material;
     private Color _tintColor = Color.cyan;

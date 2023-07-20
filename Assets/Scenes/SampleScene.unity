@@ -413,7 +413,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -707,6 +707,9 @@ MonoBehaviour:
   - prefab: {fileID: 2970004856831243135, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
     initialPoolSize: 200
     maxPoolSize: 1000
+  - prefab: {fileID: 7237822895877949001, guid: f0e5ef04378a81f4f9423438749dc68e, type: 3}
+    initialPoolSize: 5
+    maxPoolSize: 10
 --- !u!4 &552510552
 Transform:
   m_ObjectHideFlags: 0
@@ -1205,7 +1208,7 @@ Transform:
   m_Children:
   - {fileID: 672916377}
   m_Father: {fileID: 1363521002}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306451416
 GameObject:
@@ -1319,8 +1322,8 @@ Transform:
   m_LocalScale: {x: 2.1725001, y: 2.0751843, z: 1.9054778}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1728095270}
   - {fileID: 1204887195}
+  - {fileID: 1728095270}
   - {fileID: 1753206472}
   - {fileID: 1423955587}
   - {fileID: 552510552}
