@@ -46,8 +46,12 @@ public class Enemy : Entity
         
         var projectile = other.gameObject.GetComponent<Projectile>();
         TakeDamage(projectile.Damage);
+
+        if (isActiveAndEnabled)
+        {
+            GetsHitEvent?.Invoke(this, other.gameObject);
+        }
         
-        GetsHitEvent?.Invoke(this, other.gameObject);
         ObjectPoolManager.Despawn(other.gameObject);
     }
 
