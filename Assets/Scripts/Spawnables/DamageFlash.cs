@@ -44,7 +44,7 @@ public class DamageFlash : MonoBehaviour
     {
         float timeElapsed = Time.time - _timeOfHit;
         
-        while (timeElapsed < duration)
+        while (timeElapsed < intensityCurve.keys[^1].time)
         {
             timeElapsed = Time.time - _timeOfHit;
             float intensity = intensityCurve.Evaluate(timeElapsed);
