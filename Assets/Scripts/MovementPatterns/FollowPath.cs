@@ -15,7 +15,7 @@ namespace MovementPatterns
         {
             float distanceTravelled = speed * entity.LifeTime;
             
-            speed += acceleration * Time.deltaTime;
+            float currentSpeed = speed + acceleration * entity.LifeTime;
             return path.path.GetPointAtDistance(distanceTravelled);
         }
     }

@@ -8,7 +8,7 @@ namespace MovementPatterns
     [Serializable]
     public class LinearMovementPattern : MovementPattern
     {
-        [SerializeField]
+        [SerializeField] 
         private float speed;
         [SerializeField]
         private float acceleration;
@@ -45,8 +45,8 @@ namespace MovementPatterns
             
             Vector3 currentPosition = entity.transform.position;
             
-            speed += acceleration * Time.deltaTime;
-            return currentPosition + localDirection * (speed * Time.deltaTime);
+            float currentSpeed = speed + acceleration * entity.LifeTime;
+            return currentPosition + localDirection * (currentSpeed * Time.deltaTime);
         }
     
         void OnDrawGizmosSelected()
