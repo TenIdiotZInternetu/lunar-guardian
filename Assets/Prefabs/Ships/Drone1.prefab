@@ -198,7 +198,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 0.3
 --- !u!1 &5535961813080982655
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +250,7 @@ MonoBehaviour:
   SpawnKey: Drone1
   bulletSpawners:
   - {fileID: 2315230303367493866}
-  maxHealth: 8
+  maxHealth: 4
   drops:
   - item: {fileID: 7237822895877949001, guid: f0e5ef04378a81f4f9423438749dc68e, type: 3}
     dropChance: 0.5

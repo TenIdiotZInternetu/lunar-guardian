@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7237822895877949046}
   - component: {fileID: 7237822895877949044}
   - component: {fileID: 7237822895877949047}
-  - component: {fileID: 2295859336731249116}
+  - component: {fileID: -6597487340770123805}
   m_Layer: 0
   m_Name: HealCollectible
   m_TagString: Untagged
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa1bbd737dfcb749bdfb35827995610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  acceleration: 0.1
+  speed: 2
+  acceleration: 0.5
   followsRotation: 0
   directionInDegrees: 180
---- !u!114 &2295859336731249116
+--- !u!114 &-6597487340770123805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7237822895877949001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b4529c4d20452fad83d72f34a3d426, type: 3}
+  m_Script: {fileID: 11500000, guid: 26f49b4085b84503a27782cb73347a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnKey: HealCollectible
+  SpawnKey: HealthPickup

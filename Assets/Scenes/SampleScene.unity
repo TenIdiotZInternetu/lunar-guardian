@@ -404,67 +404,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19995466, y: 0.19909483}
   m_EdgeRadius: 0
---- !u!1001 &444978311
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1363521002}
-    m_Modifications:
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.145
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.30538785
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.9522281
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -144.437
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982655, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_Name
-      value: Drone1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5535961813080982655, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
 --- !u!1 &490875637
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPools:
   - prefab: {fileID: 7850864335101545919, guid: dc8199cb88017df449ba40a6f4b83af3, type: 3}
-    initialPoolSize: 50
+    initialPoolSize: 30
     maxPoolSize: 200
   - prefab: {fileID: 5535961813080982655, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
     initialPoolSize: 30
@@ -723,7 +662,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1363521002}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558970772
 GameObject:
@@ -1323,7 +1262,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1204887195}
-  - {fileID: 1728095270}
   - {fileID: 1753206472}
   - {fileID: 1423955587}
   - {fileID: 552510552}
@@ -1392,7 +1330,7 @@ Transform:
   - {fileID: 1585573288}
   - {fileID: 490875638}
   m_Father: {fileID: 1363521002}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1444180397
 GameObject:
@@ -1572,11 +1510,6 @@ MonoBehaviour:
   - {fileID: 5535961812419586158}
   - {fileID: 5535961812419586158}
   - {fileID: 5535961812419586158}
---- !u!4 &1728095270 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
-  m_PrefabInstance: {fileID: 444978311}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1753206470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,7 +1598,7 @@ Transform:
   - {fileID: 1455287687}
   - {fileID: 380029698}
   m_Father: {fileID: 1363521002}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1753206474
 BoxCollider2D:
