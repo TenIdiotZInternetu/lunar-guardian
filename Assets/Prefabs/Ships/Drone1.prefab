@@ -153,24 +153,33 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -8.891872
-      outSlope: -8.891872
+      inSlope: -10.089753
+      outSlope: -10.089753
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.08556372
-      value: 0.2391783
-      inSlope: -2.2013474
-      outSlope: -2.2013474
+      time: 0.017570639
+      value: 0.8227166
+      inSlope: -27.290941
+      outSlope: -27.290941
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.81191295
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.07836755
+      value: 0.21426137
+      inSlope: -3.860998
+      outSlope: -3.860998
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.2644085
-      outWeight: 0.26927412
+      outWeight: 0.13867673
     - serializedVersion: 3
-      time: 0.21900062
-      value: 0.03659145
+      time: 0.216193
+      value: 0.058747213
       inSlope: -0.4312184
       outSlope: -0.4312184
       tangentMode: 0
@@ -180,8 +189,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.3
       value: 0
-      inSlope: -0.4517497
-      outSlope: -0.4517497
+      inSlope: -0.7009821
+      outSlope: -0.7009821
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -202,7 +211,7 @@ GameObject:
   - component: {fileID: 5535961813080982651}
   - component: {fileID: 5535961813080982650}
   - component: {fileID: 5278248079593676528}
-  - component: {fileID: 2766335366301419810}
+  - component: {fileID: 3041227693920864540}
   m_Layer: 0
   m_Name: Drone1
   m_TagString: Untagged
@@ -296,7 +305,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18843779, y: 0.5983837}
   m_EdgeRadius: 0
---- !u!50 &2766335366301419810
+--- !u!50 &3041227693920864540
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
