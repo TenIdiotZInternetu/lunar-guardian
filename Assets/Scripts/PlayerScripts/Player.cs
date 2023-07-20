@@ -7,13 +7,13 @@ namespace PlayerScripts
     {
         public static Player Instance;
         
-        public float MovementSpeed;
-        public GameObject Projectile;
+        public static int MaxHealth = 5;
+        public static int Health = 3;
+        
+        [SerializeField]
+        private float movementSpeed;
         
         private Rigidbody2D _rigidbody;
-
-        private float _horizontalSpeed;
-        private float _verticalSpeed;
 
         // Start is called before the first frame update
         void Start()
@@ -28,7 +28,7 @@ namespace PlayerScripts
             Vector3 movementVector = new Vector3(Controls.MoveHorizontal, Controls.MoveVertical, 0);
             // transform.position += movementVector.normalized * (MovementSpeed * Time.deltaTime);
         
-            _rigidbody.velocity = movementVector.normalized * (MovementSpeed);
+            _rigidbody.velocity = movementVector.normalized * (movementSpeed);
         }
     }
 }

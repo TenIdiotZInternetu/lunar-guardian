@@ -42,14 +42,19 @@ public class Enemy : Entity
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("yo");
         if (!other.gameObject.CompareTag("PlayerProjectile")) return;
         
         var projectile = other.gameObject.GetComponent<Projectile>();
-        _currentHealth -= (int) projectile.Damage;
-        if (_currentHealth <= 0) Die();
+        TakeDamage(projectile.Damage);
         
         GetsHitEvent?.Invoke(this, other.gameObject);
+        ObjectPoolManager.Despawn(other.gameObject);
+    }
+
+    private void TakeDamage(int damage)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0) Die();
     }
 
     private void Die()

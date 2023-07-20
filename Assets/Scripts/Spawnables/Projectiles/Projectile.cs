@@ -7,6 +7,6 @@ namespace Spawnables.Projectiles
 {
     public class Projectile : Entity
     {
-        public float Damage;
+        public int Damage;
     }
 }
