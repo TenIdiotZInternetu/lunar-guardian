@@ -1,4 +1,5 @@
 using System;
+using PlayerScripts;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,10 +7,13 @@ namespace UI
 {
     public class UIBar : MonoBehaviour
     {
+        public PlayerStatus.EventType eventType;
+            
         private Slider _slider;
 
         protected void Start()
         {
+            PlayerStatus.Subscribe(eventType, ChangeValue);
             _slider = GetComponent<Slider>();
         }
         
@@ -18,7 +22,7 @@ namespace UI
             _slider.maxValue = value;
         }
 
-        protected void ChangeValue(object sender, int value)
+        protected void ChangeValue(int value)
         {
             _slider.value = value;
         }
