@@ -46,7 +46,8 @@ namespace Spawnables.VFX
                 
                 _timeOfLastShake = Time.time;
                 float magnitude = intensity * shakeCurve.Evaluate(timeElapsed);
-                Vector3 displacement = Random.insideUnitCircle * magnitude;
+                Vector3 displacement = Random.insideUnitCircle.normalized * magnitude;
+                
                 camera.transform.position = _originalPosition + displacement;
                 yield return null;
             }
