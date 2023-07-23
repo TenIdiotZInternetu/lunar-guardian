@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 380029700}
   - component: {fileID: 380029699}
   - component: {fileID: 380029701}
+  - component: {fileID: 380029702}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: PlayerHitbox
@@ -520,7 +521,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d36fe7b51fc47c493570ef59d9c200a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincibilityTime: 2
+  invincibilityTime: 3
+--- !u!114 &380029702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380029697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b72940dcf2471db4a5e45e93be4227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 519420031}
+  shakeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -2.9661524
+      outSlope: -2.9661524
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.073730595
+      value: 0.7813038
+      inSlope: -4.025769
+      outSlope: -4.025769
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.22270325
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.31230772
+      value: 0.286446
+      inSlope: -1.153966
+      outSlope: -1.153966
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13384448
+      outWeight: 0.057431806
+    - serializedVersion: 3
+      time: 0.9705019
+      value: 0.041809563
+      inSlope: -0.64280486
+      outSlope: -0.64280486
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09229922
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.4173646
+      outSlope: -1.4173646
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  intensity: 1.5
+  refreshRate: 20
 --- !u!1 &490875637
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.521515, y: 0.022727966, z: -6.9418736}
+  m_LocalPosition: {x: -30.52151, y: 0.022727966, z: -6.9418736}
   m_LocalScale: {x: 0.69418734, y: 0.69418734, z: 0.69418734}
   m_ConstrainProportionsScale: 0
   m_Children: []

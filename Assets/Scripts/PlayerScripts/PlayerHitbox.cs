@@ -1,5 +1,6 @@
 using System;
 using Spawnables;
+using Spawnables.VFX;
 using UnityEngine;
 
 namespace PlayerScripts
@@ -9,9 +10,16 @@ namespace PlayerScripts
         public float invincibilityTime;
         
         public event EventHandler<GameObject> TakesHitEvent;
-        
+
         private float _timeOfLastHit;
-        
+
+
+        private void Start()
+        {
+            CameraShake screenShake = GetComponent<CameraShake>();
+            TakesHitEvent += (sender, args) => screenShake.ShakeCamera();
+        }
+
         void OnTriggerEnter2D(Collider2D other)
         {
             if (Time.time - _timeOfLastHit <= invincibilityTime) return;
