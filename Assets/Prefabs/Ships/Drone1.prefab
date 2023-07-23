@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e9cb7b9a99bda4c9f415b4ad0f7db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 5113971499603433475}
+  victim: {fileID: 5535961813080982655}
   intensityCurve:
     serializedVersion: 2
     m_Curve:
@@ -213,7 +213,7 @@ GameObject:
   - component: {fileID: 3041227693920864540}
   m_Layer: 0
   m_Name: Drone1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

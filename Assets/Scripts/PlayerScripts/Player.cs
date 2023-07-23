@@ -19,8 +19,6 @@ namespace PlayerScripts
         void FixedUpdate()
         {
             Vector3 movementVector = new Vector3(Controls.MoveHorizontal, Controls.MoveVertical, 0);
-            // transform.position += movementVector.normalized * (MovementSpeed * Time.deltaTime);
-        
             _rigidbody.velocity = movementVector.normalized * (movementSpeed);
         }
     }

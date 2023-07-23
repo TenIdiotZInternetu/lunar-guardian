@@ -6,7 +6,7 @@ using Spawnables;
 using Spawnables.Projectiles;
 using UnityEngine;
 
-public class Enemy : Entity
+public class Enemy : Entity, IDamagable
 {
     [Serializable]
     public class LootDrop
@@ -20,7 +20,7 @@ public class Enemy : Entity
     public List<LootDrop> drops;
 
     public event EventHandler ShootsEvent;
-    public event EventHandler<GameObject> GetsHitEvent; 
+    public event EventHandler<GameObject> TakesHitEvent; 
 
     private int _currentHealth;
 
@@ -42,20 +42,21 @@ public class Enemy : Entity
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("PlayerProjectile")) return;
+        GameObject collidedObject = other.gameObject;
+        if (!collidedObject.CompareTag("PlayerProjectile")) return;
         
-        var projectile = other.gameObject.GetComponent<Projectile>();
+        var projectile = collidedObject.GetComponent<Projectile>();
         TakeDamage(projectile.Damage);
 
         if (isActiveAndEnabled)
         {
-            GetsHitEvent?.Invoke(this, other.gameObject);
+            TakesHitEvent?.Invoke(this, collidedObject);
         }
         
-        ObjectPoolManager.Despawn(other.gameObject);
+        ObjectPoolManager.Despawn(collidedObject);
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
         if (_currentHealth <= 0) Die();
