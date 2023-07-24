@@ -1,0 +1,17 @@
+using GameStates;
+
+namespace Spawnables
+{
+    public class GameOverState : GameState
+    {
+        public override void ChangeToThisState()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void LeaveThisState()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+}
