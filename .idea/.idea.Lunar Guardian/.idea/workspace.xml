@@ -11,6 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ac55d37c9454bac8a31be5a662b79ac7400/67/d15f31c6/Input.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.6.4/Editor/Signals/SignalReceiverInspector.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -104,7 +105,8 @@
       <workItem from="1689862535453" duration="11882000" />
       <workItem from="1690035052286" duration="1056000" />
       <workItem from="1690120057012" duration="13424000" />
-      <workItem from="1690206138659" duration="9323000" />
+      <workItem from="1690206138659" duration="10041000" />
+      <workItem from="1690379549028" duration="5610000" />
     </task>
     <servers />
   </component>

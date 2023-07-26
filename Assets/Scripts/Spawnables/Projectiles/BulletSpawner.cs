@@ -18,7 +18,7 @@ namespace Spawnables.Projectiles
     
         public void Awake()
         {
-            if (isPlayers) Controls.Action1 += Shoot;
+            if (isPlayers) Controls.Action1 += () => Shoot(Player.Instance, null);
         }
 
         public void Shoot(object sender, EventArgs e)
@@ -38,6 +38,5 @@ namespace Spawnables.Projectiles
             if (Time.time - _timeOfLastShot <= chargeTime) return;
             _bulletsShot = 0;
         }
-
     }
 }

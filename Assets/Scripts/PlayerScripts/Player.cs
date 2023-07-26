@@ -5,6 +5,8 @@ namespace PlayerScripts
 {
     public class Player : MonoBehaviour
     {
+        public static Player Instance;
+        
         [SerializeField]
         private float movementSpeed;
         private Rigidbody2D _rigidbody;
@@ -12,6 +14,7 @@ namespace PlayerScripts
         // Start is called before the first frame update
         void Start()
         {
+            Instance = this;
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 

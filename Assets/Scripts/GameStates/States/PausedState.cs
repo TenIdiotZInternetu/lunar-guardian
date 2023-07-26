@@ -12,7 +12,7 @@ namespace Spawnables
         public override void ChangeToThisState()
         {
             pauseMenu.SetActive(true);
-            Controls.Cancel += Unpause;
+            Controls.CancelRelease += EnableUnpausing;
         }
 
         public override void LeaveThisState()
@@ -21,12 +21,16 @@ namespace Spawnables
             Controls.Cancel -= Unpause;
         }
 
-        private void Unpause(object s, EventArgs e)
+        private void Unpause()
         {
             Debug.Log("grrr");
             GameManager.ChangeState(GameManager.Instance.PlayingState);
         }
 
-
+        private void EnableUnpausing()
+        {
+            Controls.CancelRelease -= EnableUnpausing;
+            Controls.Cancel += Unpause;
+        }
     }
 }

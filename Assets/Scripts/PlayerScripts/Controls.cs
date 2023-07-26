@@ -5,16 +5,20 @@ namespace PlayerScripts
 {
     public class Controls : MonoBehaviour
     {
-        public static event EventHandler Action1;
-        public static event EventHandler Action2;
+        public static event Action Action1;
+        public static event Action Action1Release;
+        public static event Action Action2;
+        public static event Action Action2Release;
         
         public static event EventHandler<float> MovesUp;
         public static event EventHandler<float> MovesDown;
         public static event EventHandler<float> MovesLeft;
         public static event EventHandler<float> MovesRight;
         
-        public static event EventHandler Submit;
-        public static event EventHandler Cancel;
+        public static event Action Submit;
+        public static event Action SubmitRelease;
+        public static event Action Cancel;
+        public static event Action CancelRelease;
         
         public static float MoveHorizontal;
         public static float MoveVertical;
@@ -29,10 +33,17 @@ namespace PlayerScripts
             bool submit = Input.GetButton("Submit");
             bool cancel = Input.GetButton("Cancel");
             
-            if (action1) Action1?.Invoke(this, null);
-            if (action2) Action2?.Invoke(this, null);
-            if (submit) Submit?.Invoke(this, null);
-            if (cancel) Cancel?.Invoke(this, null);
+            if (action1) Action1?.Invoke();
+            else Action1Release?.Invoke();
+            
+            if (action2) Action2?.Invoke();
+            else Action2Release?.Invoke();
+            
+            if (submit) Submit?.Invoke();
+            else SubmitRelease?.Invoke();
+            
+            if (cancel) Cancel?.Invoke();
+            else CancelRelease?.Invoke();
             
             if (MoveVertical > 0.001f) MovesUp?.Invoke(this, MoveVertical);
             if (MoveVertical < -0.001f) MovesDown?.Invoke(this, MoveVertical);

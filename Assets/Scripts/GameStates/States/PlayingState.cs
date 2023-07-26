@@ -10,7 +10,9 @@ namespace Spawnables
         public override void ChangeToThisState()
         {
             Time.timeScale = 1;
-            Controls.Cancel += Pause;
+            
+            if (Input.GetButton("Cancel")) Controls.CancelRelease += EnablePausing;
+            else Controls.Cancel += Pause;
         }
 
         public override void LeaveThisState()
@@ -19,6 +21,12 @@ namespace Spawnables
             Controls.Cancel -= Pause;
         }
         
-        private void Pause(object s, EventArgs e) => GameManager.ChangeState(GameManager.Instance.PausedState);
+        private void Pause() => GameManager.ChangeState(GameManager.Instance.PausedState);
+        
+        private void EnablePausing()
+        {
+            Controls.CancelRelease -= EnablePausing;
+            Controls.Cancel += Pause;
+        }
     }
 }
