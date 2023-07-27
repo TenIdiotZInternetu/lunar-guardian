@@ -1,11 +1,14 @@
 using System;
 using GameStates;
+using Tools;
 using UnityEngine;
 
 namespace Spawnables
 {
     public class GameManager : MonoBehaviour
     {
+        public GameStateEvent onStateChanged;
+        
         public static GameManager Instance;
         public PlayingState PlayingState { get; private set; }
         public PausedState PausedState { get; private set; }
@@ -14,7 +17,6 @@ namespace Spawnables
         
         private static GameState _currentState;
         
-        public static event EventHandler<GameState> StateChangedEvent;
 
         private void Awake()
         {
@@ -26,7 +28,7 @@ namespace Spawnables
 
             _currentState = PlayingState;
             _currentState.ChangeToThisState();
-            StateChangedEvent?.Invoke(null, _currentState);
+            onStateChanged?.Invoke(_currentState);
         }
 
         public static void ChangeState(GameState newState)
@@ -35,7 +37,7 @@ namespace Spawnables
             _currentState = newState;
             _currentState.ChangeToThisState();
             
-            StateChangedEvent?.Invoke(null, _currentState);
+            Instance.onStateChanged?.Invoke(_currentState);
         }
     }
 }
