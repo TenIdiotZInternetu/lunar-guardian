@@ -9,16 +9,11 @@ namespace PlayerScripts
 {
     public class PlayerHitbox : MonoBehaviour
     {
-        [SerializeField] private GameObjectEvent onTakesHitEvent;
-        
         public float invincibilityTime;
+        [SerializeField] private GameObjectEvent onTakesHitEvent;
         
         private float _timeOfLastHit;
 
-
-        private void Start()
-        {
-        }
 
         void OnTriggerEnter2D(Collider2D other)
         {
@@ -30,6 +25,7 @@ namespace PlayerScripts
             
             if (!(isProjectile || isEnemy)) return; 
             
+            PlayerStatus.ChangeHealth(-1);
             onTakesHitEvent?.Invoke(collidedObject);
             _timeOfLastHit = Time.time;
 
