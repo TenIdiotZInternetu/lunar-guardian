@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using MovementPatterns;
+using PlayerScripts;
 using Spawnables;
 using Spawnables.Projectiles;
 using Tools;
@@ -35,6 +36,8 @@ public class Enemy : Entity
         {
             ShootsEvent += spawner.Shoot;
         }
+        
+        BombController.OnBombDamageTick += TakeDamage;
     }
     
     void Update()

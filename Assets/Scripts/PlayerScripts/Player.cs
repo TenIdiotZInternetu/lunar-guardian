@@ -9,12 +9,13 @@ namespace PlayerScripts
     {
         public static Player Instance;
         
-        [SerializeField]
-        private float movementSpeed;
+        public float movementSpeed;
+        public BombController bombBehaviour;
         
         private Rigidbody2D _rigidbody;
         private bool _hasControl = false;
         private bool _hasBombs = true;
+        private bool _inBombState = false;
 
         // Start is called before the first frame update
         void Start()
@@ -35,14 +36,18 @@ namespace PlayerScripts
 
         private void DeployBomb()
         {
-            if (!_hasControl || !_hasBombs) return;
-            
-            
+            if (!_hasControl || !_hasBombs || _inBombState) return;
+            StartCoroutine(bombBehaviour.DeployBomb());
         }
 
         private void CheckBombs(int bombs)
         {
             _hasBombs = bombs > 0;
+        }
+        
+        public void ChangeBombState(bool state)
+        {
+            _inBombState = state;
         }
         
         public void ChangeControl(GameState state)

@@ -12,12 +12,13 @@ namespace PlayerScripts
         public float invincibilityTime;
         [SerializeField] private GameObjectEvent onTakesHitEvent;
         
+        private bool _inBombState;
         private float _timeOfLastHit;
-
-
+        
         void OnTriggerEnter2D(Collider2D other)
         {
             if (Time.time - _timeOfLastHit <= invincibilityTime) return;
+            if (_inBombState) return;
             
             GameObject collidedObject = other.gameObject;
             bool isProjectile = collidedObject.CompareTag("EnemyProjectile");
@@ -38,6 +39,11 @@ namespace PlayerScripts
             {
                 collidedObject.GetComponent<Enemy>().TakeDamage(50);
             }
+        }
+        
+        public void ChangeBombState(bool state)
+        {
+            _inBombState = state;
         }
     }
 }
