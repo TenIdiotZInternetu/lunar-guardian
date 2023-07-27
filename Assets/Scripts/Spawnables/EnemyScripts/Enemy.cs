@@ -4,9 +4,11 @@ using System.Runtime.CompilerServices;
 using MovementPatterns;
 using Spawnables;
 using Spawnables.Projectiles;
+using Tools;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Enemy : Entity, IDamagable
+public class Enemy : Entity
 {
     [Serializable]
     public class LootDrop
@@ -19,8 +21,9 @@ public class Enemy : Entity, IDamagable
     public int maxHealth;
     public List<LootDrop> drops;
 
-    public event EventHandler ShootsEvent;
-    public event EventHandler<GameObject> TakesHitEvent; 
+    public event Action ShootsEvent;
+    
+    [SerializeField] private GameObjectEvent onTakesHitEvent;
 
     private int _currentHealth;
 
@@ -37,7 +40,7 @@ public class Enemy : Entity, IDamagable
     void Update()
     {
         base.Update();
-        ShootsEvent?.Invoke(this, null);
+        ShootsEvent?.Invoke();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -50,7 +53,7 @@ public class Enemy : Entity, IDamagable
 
         if (isActiveAndEnabled)
         {
-            TakesHitEvent?.Invoke(this, collidedObject);
+            onTakesHitEvent?.Invoke(collidedObject);
         }
         
         ObjectPoolManager.Despawn(collidedObject);

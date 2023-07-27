@@ -1,23 +1,23 @@
 using System;
 using Spawnables;
 using Spawnables.VFX;
+using Tools;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PlayerScripts
 {
-    public class PlayerHitbox : MonoBehaviour, IDamagable
+    public class PlayerHitbox : MonoBehaviour
     {
+        [SerializeField] private GameObjectEvent onTakesHitEvent;
+        
         public float invincibilityTime;
         
-        public event EventHandler<GameObject> TakesHitEvent;
-
         private float _timeOfLastHit;
 
 
         private void Start()
         {
-            CameraShake screenShake = GetComponent<CameraShake>();
-            TakesHitEvent += (sender, args) => screenShake.ShakeCamera();
         }
 
         void OnTriggerEnter2D(Collider2D other)
@@ -30,8 +30,7 @@ namespace PlayerScripts
             
             if (!(isProjectile || isEnemy)) return; 
             
-            TakesHitEvent?.Invoke(this, collidedObject);
-            PlayerStatus.ChangeHealth(-1);
+            onTakesHitEvent?.Invoke(collidedObject);
             _timeOfLastHit = Time.time;
 
             if (isProjectile)

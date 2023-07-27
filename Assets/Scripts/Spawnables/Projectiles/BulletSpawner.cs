@@ -15,20 +15,21 @@ namespace Spawnables.Projectiles
 
         private float _timeOfLastShot;
         private int _bulletsShot = 0;
+        
+        private Transform _thisTransform;
     
         public void Awake()
         {
-            if (isPlayers) Controls.Action1 += () => Shoot(Player.Instance, null);
+            _thisTransform = GetComponent<Transform>();
+            if (isPlayers) Controls.Action1 += Shoot;
         }
 
-        public void Shoot(object sender, EventArgs e)
+        public void Shoot()
         {
-            GameObject shooter = ((MonoBehaviour)sender).gameObject;
-            
             if (_bulletsShot >= bulletsInCharge) Recharge();
             if (Time.time - _timeOfLastShot <= cooldown) return;
-        
-            ObjectPoolManager.Spawn(projectile, transform.position, shooter.transform.rotation);
+            
+            ObjectPoolManager.Spawn(projectile, _thisTransform.position, _thisTransform.rotation);
             _timeOfLastShot = Time.time;
             _bulletsShot++;
         }

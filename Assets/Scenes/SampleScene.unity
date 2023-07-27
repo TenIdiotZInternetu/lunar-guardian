@@ -1972,6 +1972,9 @@ MonoBehaviour:
   - {fileID: 2315230302685107451}
   maxHealth: 20
   drops: []
+  onTakesHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1052586136
 GameObject:
   m_ObjectHideFlags: 0
