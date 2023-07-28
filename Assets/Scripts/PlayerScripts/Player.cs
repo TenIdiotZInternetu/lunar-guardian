@@ -38,6 +38,7 @@ namespace PlayerScripts
         {
             if (!_hasControl || !_hasBombs || _inBombState) return;
             StartCoroutine(bombBehaviour.DeployBomb());
+            PlayerStatus.ChangeBombs(-1);
         }
 
         private void CheckBombs(int bombs)

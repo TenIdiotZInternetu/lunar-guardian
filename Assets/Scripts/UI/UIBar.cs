@@ -7,13 +7,13 @@ namespace UI
 {
     public class UIBar : MonoBehaviour
     {
-        public PlayerStatus.EventType eventType;
+        public PlayerStatus.ResourceType resourceType;
             
         private Slider _slider;
 
         protected void Start()
         {
-            PlayerStatus.Subscribe(eventType, ChangeValue);
+            PlayerStatus.Subscribe(resourceType, ChangeValue);
             _slider = GetComponent<Slider>();
         }
         

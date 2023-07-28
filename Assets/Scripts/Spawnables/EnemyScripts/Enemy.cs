@@ -37,7 +37,7 @@ public class Enemy : Entity
             ShootsEvent += spawner.Shoot;
         }
         
-        BombController.OnBombDamageTick += TakeDamage;
+        BombController.OnBombDamageTick += (damage) => TakeDamage(damage, Player.Instance.gameObject);
     }
     
     void Update()
@@ -52,18 +52,15 @@ public class Enemy : Entity
         if (!collidedObject.CompareTag("PlayerProjectile")) return;
         
         var projectile = collidedObject.GetComponent<Projectile>();
-        TakeDamage(projectile.Damage);
-
-        if (isActiveAndEnabled)
-        {
-            onTakesHitEvent?.Invoke(collidedObject);
-        }
-        
+        TakeDamage(projectile.Damage, collidedObject);
         ObjectPoolManager.Despawn(collidedObject);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, GameObject damageSource)
     {
+        if (!isActiveAndEnabled) return;
+
+        onTakesHitEvent?.Invoke(damageSource);
         _currentHealth -= damage;
         if (_currentHealth <= 0) Die();
     }

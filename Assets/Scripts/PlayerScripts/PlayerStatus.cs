@@ -5,7 +5,7 @@ namespace PlayerScripts
 {
     public static class PlayerStatus
     {
-        public enum EventType
+        public enum ResourceType
         {
             HealthChangedEvent,
             BombsChangedEvent,
@@ -32,16 +32,16 @@ namespace PlayerScripts
         
         public static event EventHandler GameOverEvent;
         
-        public static void Subscribe(EventType eventType, ChangedValueListener listener)
+        public static void Subscribe(ResourceType resourceType, ChangedValueListener listener)
         {
             Type playerStatusType = typeof(PlayerStatus);
-            EventInfo statusEvent = playerStatusType.GetEvent(eventType.ToString());
+            EventInfo statusEvent = playerStatusType.GetEvent(resourceType.ToString());
             statusEvent.AddEventHandler(null, listener);
         }
         
         public static void ChangeHealth(int amount)
         {
-            Subscribe(EventType.BombsChangedEvent, ChangeHealth);
+            Subscribe(ResourceType.BombsChangedEvent, ChangeHealth);
             
             _health += amount;
             

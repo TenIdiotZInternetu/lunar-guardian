@@ -21,6 +21,8 @@ namespace PlayerScripts
         public IEnumerator DeployBomb()
         {
             onBombDeployed?.Invoke();
+            
+            _timeOfDeployment = Time.time;
             float timeElapsed = 0;
 
             while (timeElapsed < damageCurve.keys[^1].time)

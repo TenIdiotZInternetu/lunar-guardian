@@ -37,7 +37,7 @@ namespace PlayerScripts
             
             if (isEnemy)
             {
-                collidedObject.GetComponent<Enemy>().TakeDamage(50);
+                collidedObject.GetComponent<Enemy>().TakeDamage(50, this.gameObject);
             }
         }
         
