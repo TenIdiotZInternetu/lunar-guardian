@@ -250,6 +250,7 @@ MonoBehaviour:
   bulletSpawners:
   - {fileID: 2315230303367493866}
   maxHealth: 4
+  scoreReward: 100
   drops:
   - item: {fileID: 7237822895877949001, guid: f0e5ef04378a81f4f9423438749dc68e, type: 3}
     dropChance: 0.5

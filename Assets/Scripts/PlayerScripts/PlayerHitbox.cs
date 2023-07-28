@@ -26,7 +26,9 @@ namespace PlayerScripts
             
             if (!(isProjectile || isEnemy)) return; 
             
+            PlayerStatus.ResetScoreMultiplier();
             PlayerStatus.ChangeHealth(-1);
+            
             onTakesHitEvent?.Invoke(collidedObject);
             _timeOfLastHit = Time.time;
 

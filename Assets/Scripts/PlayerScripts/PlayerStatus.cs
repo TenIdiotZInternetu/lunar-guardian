@@ -16,18 +16,24 @@ namespace PlayerScripts
             Score,
             ScoreMultiplier
         }
-        
-        private static int _maxHealth = 5;
+
+        private const int MAX_HEALTH = 5;
         private static int _health = 3;
-        
-        private static int _maxBombsHeld = 5;
+
+        private const int MAX_BOMBS_HELD = 5;
         private static int _bombsHeld = 2;
 
-        private static int _maxPowerLevel = 200;
+        private const int MAX_POWER_LEVEL = 200;
         private static int _powerLevel = 0;
         
+        private static readonly float[] MULTIPLIER_LEVELS = 
+        {
+            1, 1.15f, 1.3f, 1.45f, 1.6f, 1.75f, 2, 2.2f, 2.4f, 2.6f, 2.8f, 3, 3.5f, 4, 4.5f, 5
+        };
+
         private static int _score = 0;
-        private static int _scoreMultiplier = 1;
+        private static float _scoreMultiplier = 1;
+        private static int _scoreMultiplierLevel = 0;
 
         public delegate void ChangedValueListener(int value);
         
@@ -58,7 +64,7 @@ namespace PlayerScripts
         {
             _health += amount;
             
-            if (_health > _maxHealth) _health = _maxHealth;
+            if (_health > MAX_HEALTH) _health = MAX_HEALTH;
             if (_health < 0) GameOverEvent?.Invoke(null, null);
             
             HealthChangedEvent?.Invoke(_health);
@@ -67,21 +73,32 @@ namespace PlayerScripts
         public static void ChangeBombs(int amount)
         {
             _bombsHeld += amount;
-            Math.Clamp(_bombsHeld, 0, _maxBombsHeld);
+            Math.Clamp(_bombsHeld, 0, MAX_BOMBS_HELD);
             BombsChangedEvent?.Invoke(_bombsHeld);
         }
         
         public static void ChangePowerLevel(int amount)
         {
             _powerLevel += amount;
-            Math.Clamp(_powerLevel, 0, _maxPowerLevel);
+            Math.Clamp(_powerLevel, 0, MAX_POWER_LEVEL);
             PowerLevelChangedEvent?.Invoke(_powerLevel);
         }
         
         public static void ChangeScore(int amount)
         {
-            _score += amount * _scoreMultiplier;
+            _score += (int)Math.Ceiling(amount * _scoreMultiplier);
             ScoreChangedEvent?.Invoke(_score);
+        }
+        
+        public static void ChangeScoreMultiplier(int amount)
+        {
+            _scoreMultiplierLevel += amount;
+            _scoreMultiplier = MULTIPLIER_LEVELS[_scoreMultiplierLevel];
+        }
+        
+        public static void ResetScoreMultiplier()
+        {
+            _scoreMultiplier = 1;
         }
     }
 }

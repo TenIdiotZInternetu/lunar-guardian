@@ -20,6 +20,8 @@ public class Enemy : Entity
     
     public List<BulletSpawner> bulletSpawners;
     public int maxHealth;
+
+    public int scoreReward;
     public List<LootDrop> drops;
 
     public event Action ShootsEvent;
@@ -75,6 +77,7 @@ public class Enemy : Entity
             }
         }
 
+        PlayerStatus.ChangeScore(scoreReward);
         ObjectPoolManager.Despawn(gameObject);
     }
 }
