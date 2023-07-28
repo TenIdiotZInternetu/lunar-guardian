@@ -23,7 +23,6 @@ namespace Spawnables
 
         private void Unpause()
         {
-            Debug.Log("grrr");
             GameManager.ChangeState(GameManager.Instance.PlayingState);
         }
 

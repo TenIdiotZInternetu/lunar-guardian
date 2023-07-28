@@ -5,12 +5,16 @@ namespace PlayerScripts
 {
     public static class PlayerStatus
     {
+        const string EVENT_NAME_SUFFIX = "ChangedEvent";
+        const string CHANGE_METHOD_PREFIX = "Change";
+        
         public enum ResourceType
         {
-            HealthChangedEvent,
-            BombsChangedEvent,
-            PowerLevelChangedEvent,
-            ScoreChangedEvent
+            Health,
+            Bombs,
+            PowerLevel,
+            Score,
+            ScoreMultiplier
         }
         
         private static int _maxHealth = 5;
@@ -21,7 +25,9 @@ namespace PlayerScripts
 
         private static int _maxPowerLevel = 200;
         private static int _powerLevel = 0;
+        
         private static int _score = 0;
+        private static int _scoreMultiplier = 1;
 
         public delegate void ChangedValueListener(int value);
         
@@ -35,14 +41,21 @@ namespace PlayerScripts
         public static void Subscribe(ResourceType resourceType, ChangedValueListener listener)
         {
             Type playerStatusType = typeof(PlayerStatus);
-            EventInfo statusEvent = playerStatusType.GetEvent(resourceType.ToString());
+            string eventName = resourceType.ToString() + EVENT_NAME_SUFFIX;
+            EventInfo statusEvent = playerStatusType.GetEvent(eventName);
             statusEvent.AddEventHandler(null, listener);
+        }
+        
+        public static void ChangeResource(ResourceType resourceType, int amount)
+        {
+            Type playerStatusType = typeof(PlayerStatus);
+            string methodName = CHANGE_METHOD_PREFIX + resourceType.ToString();
+            MethodInfo statusMethod = playerStatusType.GetMethod(methodName);
+            statusMethod.Invoke(null, new object[] {amount});
         }
         
         public static void ChangeHealth(int amount)
         {
-            Subscribe(ResourceType.BombsChangedEvent, ChangeHealth);
-            
             _health += amount;
             
             if (_health > _maxHealth) _health = _maxHealth;
@@ -65,9 +78,9 @@ namespace PlayerScripts
             PowerLevelChangedEvent?.Invoke(_powerLevel);
         }
         
-        public static void IncreaseScore(int amount)
+        public static void ChangeScore(int amount)
         {
-            _score += amount;
+            _score += amount * _scoreMultiplier;
             ScoreChangedEvent?.Invoke(_score);
         }
     }
