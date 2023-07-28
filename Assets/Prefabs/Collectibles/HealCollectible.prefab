@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7237822895877949046}
   - component: {fileID: 7237822895877949044}
   - component: {fileID: 7237822895877949047}
-  - component: {fileID: -6597487340770123805}
   - component: {fileID: 8989911055529984185}
+  - component: {fileID: 5402303974314664392}
   m_Layer: 0
   m_Name: HealCollectible
   m_TagString: Untagged
@@ -103,21 +103,6 @@ MonoBehaviour:
   acceleration: 0.5
   followsRotation: 0
   directionInDegrees: 180
---- !u!114 &-6597487340770123805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237822895877949001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f49b4085b84503a27782cb73347a53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnKey: HealthPickup
-  healthBonus: 1
-  scoreBonus: 500
 --- !u!61 &8989911055529984185
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,3 +129,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
+--- !u!114 &5402303974314664392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7237822895877949001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdb07b58a6a4cf5b750f9e59e153f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnKey: HealthPickup
+  rewards:
+  - type: 0
+    amount: 1
+  - type: 3
+    amount: 500
