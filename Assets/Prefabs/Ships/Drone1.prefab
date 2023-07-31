@@ -255,7 +255,7 @@ MonoBehaviour:
   - item: {fileID: 938864751126864849, guid: 5a109490c624ddc4bbba36c0837903ff, type: 3}
     dropChance: 0.5
   - item: {fileID: 8533441571403884713, guid: 4b77a05d7ea955b4f91edeec464dd2a0, type: 3}
-    dropChance: 0.2
+    dropChance: 0.4
   onTakesHitEvent:
     m_PersistentCalls:
       m_Calls:

@@ -28,8 +28,8 @@ namespace PlayerScripts
             _rigidbody = GetComponent<Rigidbody2D>();
             
             PlayerStatus.BombsChangedEvent += CheckBombs;
-            Controls.Action2 += () => ChangeWeapon(2);
-            
+            PlayerStatus.PowerLevelChangedEvent += (level) => ChangeWeapon((int)level);
+            Controls.Action2 += DeployBomb;
         }
 
         // Update is called once per frame
@@ -59,7 +59,7 @@ namespace PlayerScripts
         public void ChangeWeapon(int powerLevel)
         {
             currentWeapon.SetActive(false);
-            currentWeapon = weapons[powerLevel - 1];
+            currentWeapon = weapons[powerLevel];
             currentWeapon.SetActive(true);
         }
         

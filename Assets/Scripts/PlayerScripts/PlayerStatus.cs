@@ -13,7 +13,7 @@ namespace PlayerScripts
         {
             Health,
             Bombs,
-            PowerLevel,
+            Power,
             Score,
             ScoreMultiplier
         }
@@ -23,9 +23,14 @@ namespace PlayerScripts
 
         private const int MAX_BOMBS_HELD = 5;
         private static int _bombsHeld = 2;
+        
+        private static readonly int[] POWER_LEVELS = 
+        {
+            25, 50, 75, 100, 150, 200
+        };
 
-        private const int MAX_POWER_LEVEL = 200;
-        private static int _powerLevel = 0;
+        private const int MAX_POWER = 200;
+        private static int _power = 0;
         
         private static readonly float[] MULTIPLIER_LEVELS = 
         {
@@ -40,6 +45,7 @@ namespace PlayerScripts
         
         public static event ChangedValueListener HealthChangedEvent;
         public static event ChangedValueListener BombsChangedEvent;
+        public static event ChangedValueListener PowerChangedEvent;
         public static event ChangedValueListener PowerLevelChangedEvent;
         public static event ChangedValueListener ScoreChangedEvent;
         public static event ChangedValueListener ScoreMultiplierChangedEvent;
@@ -79,11 +85,22 @@ namespace PlayerScripts
             BombsChangedEvent?.Invoke(_bombsHeld);
         }
         
-        public static void ChangePowerLevel(int amount)
+        public static void ChangePower(int amount)
         {
-            _powerLevel += amount;
-            Math.Clamp(_powerLevel, 0, MAX_POWER_LEVEL);
-            PowerLevelChangedEvent?.Invoke(_powerLevel);
+            _power += amount;
+            Math.Clamp(_power, 0, MAX_POWER);
+            PowerChangedEvent?.Invoke(_power);
+            
+            for (int i = 0; i < POWER_LEVELS.Length; i++)
+            {
+                int level = POWER_LEVELS.Length - i;
+                
+                if (_power >= POWER_LEVELS[level - 1])
+                {
+                    PowerLevelChangedEvent?.Invoke(level);
+                    break;
+                }
+            }
         }
         
         public static void ChangeScore(int amount)
