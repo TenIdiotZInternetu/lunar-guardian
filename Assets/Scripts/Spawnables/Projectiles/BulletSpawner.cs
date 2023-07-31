@@ -39,5 +39,11 @@ namespace Spawnables.Projectiles
             if (Time.time - _timeOfLastShot <= chargeTime) return;
             _bulletsShot = 0;
         }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(transform.position, 0.05f);
+        }
     }
 }

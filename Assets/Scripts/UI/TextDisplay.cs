@@ -17,6 +17,7 @@ namespace UI
         
         public string format = "{0}";
         public float defaultValue = 0;
+        public bool hideWhenDefault = false;
         
         public bool addSeparators = false;
         public int zeroPadding = 0;
@@ -47,6 +48,12 @@ namespace UI
 
         private void UpdateText(float value)
         {
+            if (hideWhenDefault && value == defaultValue)
+            {
+                _tmpComponent.text = "";
+                return;
+            }
+            
             _stringBuilder.Clear();
             string targetString = value.ToString();
             

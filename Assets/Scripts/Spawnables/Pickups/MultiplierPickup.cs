@@ -8,7 +8,6 @@ namespace Spawnables.Collectibles
     {
         protected void OnTriggerExit2D(Collider2D other)
         {
-            Debug.Log(other.ToString()); 
             if (!other.gameObject.CompareTag("PlayfieldBorder")) return;
             PlayerStatus.ResetScoreMultiplier();
         }

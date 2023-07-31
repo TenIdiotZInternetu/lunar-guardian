@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using GameStates;
 using Spawnables;
 using UnityEngine;
@@ -12,6 +13,9 @@ namespace PlayerScripts
         public float movementSpeed;
         public BombController bombBehaviour;
         
+        public GameObject currentWeapon;
+        public List<GameObject> weapons;
+        
         private Rigidbody2D _rigidbody;
         private bool _hasControl = false;
         private bool _hasBombs = true;
@@ -24,7 +28,8 @@ namespace PlayerScripts
             _rigidbody = GetComponent<Rigidbody2D>();
             
             PlayerStatus.BombsChangedEvent += CheckBombs;
-            Controls.Action2 += DeployBomb;
+            Controls.Action2 += () => ChangeWeapon(2);
+            
         }
 
         // Update is called once per frame
@@ -49,6 +54,13 @@ namespace PlayerScripts
         public void ChangeBombState(bool state)
         {
             _inBombState = state;
+        }
+        
+        public void ChangeWeapon(int powerLevel)
+        {
+            currentWeapon.SetActive(false);
+            currentWeapon = weapons[powerLevel - 1];
+            currentWeapon.SetActive(true);
         }
         
         public void ChangeControl(GameState state)

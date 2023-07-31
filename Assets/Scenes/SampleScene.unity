@@ -960,6 +960,7 @@ MonoBehaviour:
   trackedResource: 4
   format: x {0}
   defaultValue: 1
+  hideWhenDefault: 1
   addSeparators: 0
   zeroPadding: 0
   separatorInterval: 3
@@ -3676,6 +3677,7 @@ MonoBehaviour:
   trackedResource: 3
   format: '{0}'
   defaultValue: 0
+  hideWhenDefault: 0
   addSeparators: 1
   zeroPadding: 9
   separatorInterval: 3
@@ -4061,6 +4063,14 @@ PrefabInstance:
       propertyPath: bombBehaviour
       value: 
       objectReference: {fileID: 1753206477}
+    - target: {fileID: 4226900736199229169, guid: 8ca40df2a4964654aa498c05666e73b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316690914501646604, guid: 8ca40df2a4964654aa498c05666e73b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ca40df2a4964654aa498c05666e73b3, type: 3}
 --- !u!114 &2315230302685107451 stripped
