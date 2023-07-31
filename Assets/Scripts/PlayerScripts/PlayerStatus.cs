@@ -1,5 +1,6 @@
 using System;
 using System.Reflection;
+using UnityEngine;
 
 namespace PlayerScripts
 {
@@ -35,12 +36,13 @@ namespace PlayerScripts
         private static float _scoreMultiplier = 1;
         private static int _scoreMultiplierLevel = 0;
 
-        public delegate void ChangedValueListener(int value);
+        public delegate void ChangedValueListener(float value);
         
         public static event ChangedValueListener HealthChangedEvent;
         public static event ChangedValueListener BombsChangedEvent;
         public static event ChangedValueListener PowerLevelChangedEvent;
         public static event ChangedValueListener ScoreChangedEvent;
+        public static event ChangedValueListener ScoreMultiplierChangedEvent;
         
         public static event EventHandler GameOverEvent;
         
@@ -94,11 +96,13 @@ namespace PlayerScripts
         {
             _scoreMultiplierLevel += amount;
             _scoreMultiplier = MULTIPLIER_LEVELS[_scoreMultiplierLevel];
+            ScoreMultiplierChangedEvent?.Invoke(_scoreMultiplier);
         }
         
         public static void ResetScoreMultiplier()
         {
-            _scoreMultiplier = 1;
+            _scoreMultiplierLevel = 0;
+            ChangeScoreMultiplier(0);
         }
     }
 }

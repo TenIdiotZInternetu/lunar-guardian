@@ -69,15 +69,22 @@ public class Enemy : Entity
 
     private void Die()
     {
-        foreach (var drop in drops)
-        {
-            if (UnityEngine.Random.Range(0f, 1f) <= drop.dropChance)
-            {
-                ObjectPoolManager.Spawn(drop.item, transform.position, Quaternion.identity);
-            }
-        }
-
+        DropLoot();
         PlayerStatus.ChangeScore(scoreReward);
         ObjectPoolManager.Despawn(gameObject);
+    }
+
+    private void DropLoot()
+    {
+        foreach (var drop in drops)
+        {
+            float roll = UnityEngine.Random.Range(0f, 1f);
+            if ( roll <= drop.dropChance)
+            {
+                Vector3 posOffset = new Vector3(roll, 1 - roll);
+                ObjectPoolManager.Spawn(drop.item, transform.position + posOffset, Quaternion.identity);
+                return;
+            }
+        }
     }
 }

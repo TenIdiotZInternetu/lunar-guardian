@@ -20,9 +20,10 @@ namespace UI
         public void ChangeMaxValue(int value)
         {
             _slider.maxValue = value;
+            
         }
 
-        protected void ChangeValue(int value)
+        protected void ChangeValue(float value)
         {
             _slider.value = value;
         }

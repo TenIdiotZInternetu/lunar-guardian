@@ -41,7 +41,7 @@ namespace PlayerScripts
             PlayerStatus.ChangeBombs(-1);
         }
 
-        private void CheckBombs(int bombs)
+        private void CheckBombs(float bombs)
         {
             _hasBombs = bombs > 0;
         }

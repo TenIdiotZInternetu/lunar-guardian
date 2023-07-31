@@ -820,6 +820,7 @@ GameObject:
   - component: {fileID: 322711769}
   - component: {fileID: 322711771}
   - component: {fileID: 322711770}
+  - component: {fileID: 322711772}
   m_Layer: 5
   m_Name: ScoreMultiplier
   m_TagString: Untagged
@@ -867,7 +868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x 1.00
+  m_text: x 1.23
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e54e15221c7ac6b47a21400e0315cc41, type: 2}
   m_sharedMaterial: {fileID: -686991997541841466, guid: e54e15221c7ac6b47a21400e0315cc41, type: 2}
@@ -901,7 +902,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -944,6 +945,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322711768}
   m_CullTransparentMesh: 1
+--- !u!114 &322711772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322711768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1f64e409d64a32867f48d5d50980ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedResource: 4
+  format: x {0}
+  defaultValue: 1
+  addSeparators: 0
+  zeroPadding: 0
+  separatorInterval: 3
 --- !u!1 &330646439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1387,12 @@ MonoBehaviour:
   - prefab: {fileID: 7237822895877949001, guid: f0e5ef04378a81f4f9423438749dc68e, type: 3}
     initialPoolSize: 5
     maxPoolSize: 10
+  - prefab: {fileID: 8533441571403884713, guid: 4b77a05d7ea955b4f91edeec464dd2a0, type: 3}
+    initialPoolSize: 30
+    maxPoolSize: 100
+  - prefab: {fileID: 938864751126864849, guid: 5a109490c624ddc4bbba36c0837903ff, type: 3}
+    initialPoolSize: 50
+    maxPoolSize: 100
 --- !u!4 &552510552
 Transform:
   m_ObjectHideFlags: 0
@@ -1579,7 +1604,7 @@ GameObject:
   - component: {fileID: 672916380}
   m_Layer: 0
   m_Name: PlayfieldBorder
-  m_TagString: Untagged
+  m_TagString: PlayfieldBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1592,7 +1617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672916376}
   m_LocalRotation: {x: 0.022293998, y: -0, z: -0, w: 0.9997515}
-  m_LocalPosition: {x: -2.3015027, y: 0.08546654, z: -1}
+  m_LocalPosition: {x: -2.3015027, y: 0.08546654, z: 0}
   m_LocalScale: {x: 4.921948, y: 4.47, z: 0.5247098}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1607,7 +1632,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672916376}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3559,7 +3584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000.000.000
+  m_text: 000.001..23
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcc88066ad8771643a7599fe517a0428, type: 2}
   m_sharedMaterial: {fileID: -4701289607068215714, guid: fcc88066ad8771643a7599fe517a0428, type: 2}
@@ -3586,7 +3611,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.75
+  m_fontSize: 20.85
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3649,6 +3674,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedResource: 3
+  format: '{0}'
+  defaultValue: 0
+  addSeparators: 1
+  zeroPadding: 9
+  separatorInterval: 3
 --- !u!1 &1944662595
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,7 +3797,7 @@ GameObject:
   - component: {fileID: 2016360648}
   m_Layer: 0
   m_Name: DespawnCollider
-  m_TagString: Untagged
+  m_TagString: Despawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3797,7 +3827,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.021529257}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3808,7 +3838,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.0430579}
   m_EdgeRadius: 0
 --- !u!4 &2016360647
 Transform:
