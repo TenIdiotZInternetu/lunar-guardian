@@ -38,18 +38,7 @@ namespace PlayerScripts
             Vector3 movementVector = new Vector3(Controls.MoveHorizontal, Controls.MoveVertical, 0);
             _rigidbody.velocity = movementVector.normalized * (movementSpeed);
         }
-
-        private void DeployBomb()
-        {
-            if (!_hasControl || !_hasBombs || _inBombState) return;
-            StartCoroutine(bombBehaviour.DeployBomb());
-            PlayerStatus.ChangeBombs(-1);
-        }
-
-        private void CheckBombs(float bombs)
-        {
-            _hasBombs = bombs > 0;
-        }
+        
         
         public void ChangeBombState(bool state)
         {
@@ -67,5 +56,18 @@ namespace PlayerScripts
         {
             _hasControl = state is PlayingState;
         }
+
+        private void DeployBomb()
+        {
+            if (!_hasControl || !_hasBombs || _inBombState) return;
+            StartCoroutine(bombBehaviour.DeployBomb());
+            PlayerStatus.ChangeBombs(-1);
+        }
+        
+        private void CheckBombs(float bombs)
+        {
+            _hasBombs = bombs > 0;
+        }
+
     }
 }
