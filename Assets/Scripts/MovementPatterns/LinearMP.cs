@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MovementPatterns
 {
     [Serializable]
-    public class LinearMovementPattern : MovementPattern
+    public class LinearMP : MovementPattern
     {
         [SerializeField] 
         private float speed;
@@ -26,8 +26,6 @@ namespace MovementPatterns
 
         void OnValidate()
         {
-            
-            
             direction = Quaternion.Euler(0, 0, directionInDegrees) * Vector3.up;
             direction = direction.normalized;
         }

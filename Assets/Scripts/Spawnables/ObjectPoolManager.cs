@@ -45,7 +45,7 @@ public class ObjectPoolManager : MonoBehaviour
         spawnedObject.transform.rotation = rotation;
         
         Entity objScript = spawnedObject.GetComponent<Entity>();
-        objScript.MovementPattern = prefab.GetComponent<MovementPattern>();
+        objScript.movementPattern = prefab.GetComponent<MovementPattern>();
 
         spawnedObject.SetActive(true);
         return spawnedObject;

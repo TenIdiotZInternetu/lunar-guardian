@@ -18,6 +18,7 @@ namespace PlayerScripts
             ScoreMultiplier
         }
 
+        private const int MAX_HEALTH_BONUS = 20000;
         private const int MAX_HEALTH = 5;
         private static int _health = 3;
 
@@ -37,6 +38,8 @@ namespace PlayerScripts
             1, 1.15f, 1.3f, 1.45f, 1.6f, 1.75f, 2, 2.2f, 2.4f, 2.6f, 2.8f, 3, 3.5f, 4, 4.5f, 5
         };
 
+        private const int HEALTH_UP_REQUREMENT_INCREMENT = 1000000;
+        private static int _healthUpRequirement = 1000000;
         private static int _score = 0;
         private static float _scoreMultiplier = 1;
         private static int _scoreMultiplierLevel = 0;
@@ -71,8 +74,12 @@ namespace PlayerScripts
         public static void ChangeHealth(int amount)
         {
             _health += amount;
-            
-            if (_health > MAX_HEALTH) _health = MAX_HEALTH;
+
+            if (_health > MAX_HEALTH)
+            {
+                ChangeScore(MAX_HEALTH_BONUS);
+                _health = MAX_HEALTH;
+            }
             if (_health < 0) GameOverEvent?.Invoke(null, null);
             
             HealthChangedEvent?.Invoke(_health);
@@ -106,6 +113,13 @@ namespace PlayerScripts
         public static void ChangeScore(int amount)
         {
             _score += (int)Math.Ceiling(amount * _scoreMultiplier);
+
+            if (_score >= _healthUpRequirement)
+            {
+                _healthUpRequirement += HEALTH_UP_REQUREMENT_INCREMENT;
+                ChangeHealth(1);
+            }
+                
             ScoreChangedEvent?.Invoke(_score);
         }
         
