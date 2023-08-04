@@ -2585,7 +2585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3099992
+      value: 2.81
       objectReference: {fileID: 0}
     - target: {fileID: 5535961813080982652, guid: ac4a98d7d8ef0a64395660a4e895745e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2648,10 +2648,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 781594282}
-  attractionRate: 0.26
-  chaseTime: 5
-  initialDirection: 90
-  speed: 0.72
+  attractionRate: 10.7
+  initialDirection: -143.12
+  lockOnTime: 0.5
+  chaseTime: 4
+  speed: 2.95
   acceleration: 0
 --- !u!1 &1306451416
 GameObject:
@@ -4117,15 +4118,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1985297092855683866, guid: 8ca40df2a4964654aa498c05666e73b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.65
+      value: -4.41
       objectReference: {fileID: 0}
     - target: {fileID: 1985297092855683866, guid: 8ca40df2a4964654aa498c05666e73b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.59
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 1985297092855683866, guid: 8ca40df2a4964654aa498c05666e73b3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1985297092855683866, guid: 8ca40df2a4964654aa498c05666e73b3, type: 3}
       propertyPath: m_LocalRotation.w
