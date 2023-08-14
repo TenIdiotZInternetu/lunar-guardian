@@ -18,7 +18,7 @@ public class Enemy : Entity
         public float dropChance;
     }
     
-    public List<BulletSpawner> bulletSpawners;
+    public List<GameObject> shootableSources;
     public int maxHealth;
 
     public int scoreReward;
@@ -34,9 +34,10 @@ public class Enemy : Entity
     {
         _currentHealth = maxHealth;
         
-        foreach (var spawner in bulletSpawners)
+        foreach (var spawner in shootableSources)
         {
-            ShootsEvent += spawner.Shoot;
+            var spawnerScript = spawner.GetComponent<IShootable>();
+            ShootsEvent += spawnerScript.OnShoot;
         }
         
         BombController.OnBombDamageTick += (damage) => TakeDamage(damage, Player.Instance.gameObject);
