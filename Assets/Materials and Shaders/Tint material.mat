@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tint
+  m_Name: Tint material
   m_Shader: {fileID: -6465566751694194690, guid: 4bb88e75fc96b0a4cbe4913c65c6e79f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
