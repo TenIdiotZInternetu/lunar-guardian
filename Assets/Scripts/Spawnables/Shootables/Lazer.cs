@@ -1,4 +1,5 @@
 using System.Collections;
+using PlayerScripts;
 using UnityEngine;
 
 namespace Spawnables.Projectiles
@@ -7,6 +8,7 @@ namespace Spawnables.Projectiles
     public class Lazer : MonoBehaviour, IShootable
     {
         private const float MAX_LENGTH = 50;
+        private const string HITBOX_LAYER_NAME = "PlayerHitbox";
         
         public float cooldown;
         public float telegraphDuration;
@@ -18,8 +20,10 @@ namespace Spawnables.Projectiles
         public float releaseWidth;
         
         private LineRenderer _lineRenderer;
+        private int _playerHitboxLayer;
         
         private float _timeOfLastShot;
+        
 
         void Start()
         {
@@ -27,7 +31,9 @@ namespace Spawnables.Projectiles
             _lineRenderer.enabled = false;
             _lineRenderer.useWorldSpace = true;
             _lineRenderer.SetPosition(0, transform.position);
-        }
+            
+            _playerHitboxLayer = 1 << LayerMask.NameToLayer(HITBOX_LAYER_NAME);
+        } 
 
         public void OnShoot()
         {
@@ -60,6 +66,7 @@ namespace Spawnables.Projectiles
             while (Time.time < timeOfReleaseEnd)
             {
                 UpdatePosition();
+                CheckDamages();
                 yield return null;
             }
 
@@ -73,6 +80,22 @@ namespace Spawnables.Projectiles
 
             Vector3 endPoint = startPoint + transform.rotation * Vector3.up * MAX_LENGTH;
             _lineRenderer.SetPosition(1, endPoint);
+        }
+
+        private void CheckDamages()
+        {
+            Vector2 origin = transform.position;
+            Vector2 size = new Vector2(releaseWidth, releaseWidth) / 2;
+            Vector2 direction = transform.rotation * Vector2.up;
+            
+            RaycastHit2D hitInfo = Physics2D.BoxCast(origin, size, 0, direction, MAX_LENGTH, _playerHitboxLayer);
+            
+            Debug.Log(hitInfo.point + hitInfo.collider?.name);
+            
+            PlayerHitbox playerHitbox = hitInfo.collider?.GetComponent<PlayerHitbox>();
+            if (playerHitbox == null) return;
+            
+            playerHitbox.AttemptHit(hitInfo.collider.gameObject);
         }
 
         private void ChangeAppearance(Material material, float width)

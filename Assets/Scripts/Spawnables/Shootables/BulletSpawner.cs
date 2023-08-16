@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Spawnables.Projectiles
 {
-    public class BulletSpawner : MonoBehaviour
+    public class BulletSpawner : MonoBehaviour, IShootable
     {
         public GameObject projectile;
         public float cooldown;
@@ -21,10 +21,10 @@ namespace Spawnables.Projectiles
         public void Awake()
         {
             _thisTransform = GetComponent<Transform>();
-            if (isPlayers) Controls.Action1 += Shoot;
+            if (isPlayers) Controls.Action1 += OnShoot;
         }
 
-        public void Shoot()
+        public void OnShoot()
         {
             if (_bulletsShot >= bulletsInCharge) Recharge();
             if (Time.time - _timeOfLastShot <= cooldown) return;

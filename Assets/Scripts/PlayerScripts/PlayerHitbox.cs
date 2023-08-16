@@ -14,11 +14,21 @@ namespace PlayerScripts
         
         private bool _inBombState;
         private float _timeOfLastHit;
+
+        public void AttemptHit(GameObject damageSource)
+        {
+            if (IsInvincible()) return;
+            TakeHit(damageSource);
+        }
+
+        private bool IsInvincible()
+        {
+            return _inBombState || Time.time - _timeOfLastHit <= invincibilityTime;
+        }
         
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (Time.time - _timeOfLastHit <= invincibilityTime) return;
-            if (_inBombState) return;
+            if (IsInvincible()) return;
             
             GameObject collidedObject = other.gameObject;
             bool isProjectile = collidedObject.CompareTag("EnemyProjectile");
@@ -26,11 +36,7 @@ namespace PlayerScripts
             
             if (!(isProjectile || isEnemy)) return; 
             
-            PlayerStatus.ResetScoreMultiplier();
-            PlayerStatus.ChangeHealth(-1);
-            
-            onTakesHitEvent?.Invoke(collidedObject);
-            _timeOfLastHit = Time.time;
+            TakeHit(collidedObject);
 
             if (isProjectile)
             {
@@ -41,6 +47,15 @@ namespace PlayerScripts
             {
                 collidedObject.GetComponent<Enemy>().TakeDamage(50, this.gameObject);
             }
+        }
+
+        private void TakeHit(GameObject damageSource)
+        {
+            PlayerStatus.ResetScoreMultiplier();
+            PlayerStatus.ChangeHealth(-1);
+            
+            onTakesHitEvent?.Invoke(damageSource);
+            _timeOfLastHit = Time.time;
         }
         
         public void ChangeBombState(bool state)
