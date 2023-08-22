@@ -8,8 +8,8 @@ namespace Spawnables.Projectiles
     {
         public bool HasAggro { get; set; } = false;
 
-        private Action OnShootEvent;
-        private List<IShootable> shootables = new();
+        protected Action OnShootEvent;
+        
 
         void Start()
         {
@@ -21,7 +21,7 @@ namespace Spawnables.Projectiles
             if (HasAggro) TryShooting();
         }
 
-        private void DetectShootables()
+        protected virtual void DetectShootables()
         {
             var childShootables = transform.GetComponentsInChildren<IShootable>();
             
