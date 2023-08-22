@@ -31,8 +31,8 @@ public class Enemy : Entity
     public event Action ShootsEvent;
     
     [SerializeField] private GameObjectEvent onTakesHitEvent;
+    [SerializeField] private bool hasAggro = false;
 
-    private bool _hasAggro = false;
     private int _currentHealth;
 
     void Start()
@@ -51,7 +51,7 @@ public class Enemy : Entity
     void Update()
     {
         base.Update();
-        if (_hasAggro) ShootsEvent?.Invoke();
+        if (hasAggro) ShootsEvent?.Invoke();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -78,7 +78,8 @@ public class Enemy : Entity
 
     private void SwitchAggro()
     {
-        _hasAggro = !_hasAggro;
+        hasAggro = !hasAggro;
+        
     }
 
     public void TakeDamage(int damage, GameObject damageSource)

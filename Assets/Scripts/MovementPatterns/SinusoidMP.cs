@@ -22,6 +22,11 @@ namespace MovementPatterns
         private Vector3 _axisDirection;
         private Vector3 _axisNormal;
         private Vector3 _origin;
+
+        void Start()
+        {
+            OnValidate();
+        }
         
         public override Vector3 GetNextPosition(Entity entity)
         {
