@@ -18,6 +18,10 @@ public class Enemy : Entity
         public float dropChance;
     }
     
+    private const string PLAYER_PROJECTILE_TAG = "PlayerProjectile";
+    private const string BORDER_TAG = "PlayfieldBorder";
+    
+    
     public List<GameObject> shootableSources;
     public int maxHealth;
 
@@ -28,6 +32,7 @@ public class Enemy : Entity
     
     [SerializeField] private GameObjectEvent onTakesHitEvent;
 
+    private bool _hasAggro = false;
     private int _currentHealth;
 
     void Start()
@@ -46,17 +51,34 @@ public class Enemy : Entity
     void Update()
     {
         base.Update();
-        ShootsEvent?.Invoke();
+        if (_hasAggro) ShootsEvent?.Invoke();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         GameObject collidedObject = other.gameObject;
-        if (!collidedObject.CompareTag("PlayerProjectile")) return;
-        
-        var projectile = collidedObject.GetComponent<Projectile>();
-        TakeDamage(projectile.Damage, collidedObject);
-        ObjectPoolManager.Despawn(collidedObject);
+        if (collidedObject.CompareTag(PLAYER_PROJECTILE_TAG))
+        {
+            OnProjectileCollision(collidedObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        GameObject collidedObject = other.gameObject;
+        if (collidedObject.CompareTag(BORDER_TAG)) SwitchAggro();
+    }
+
+    private void OnProjectileCollision(GameObject projectile)
+    {
+        var projectileScript = projectile.GetComponent<Projectile>();
+        TakeDamage(projectileScript.Damage, projectile);
+        ObjectPoolManager.Despawn(projectile);
+    }
+
+    private void SwitchAggro()
+    {
+        _hasAggro = !_hasAggro;
     }
 
     public void TakeDamage(int damage, GameObject damageSource)
