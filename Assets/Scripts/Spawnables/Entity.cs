@@ -22,7 +22,10 @@ namespace Spawnables
         
         public void Update()
         {
-            transform.position = movementPattern.GetNextPosition(this);
+            if (movementPattern != null)
+            {
+                transform.position = movementPattern.GetNextPosition(this);
+            }
         }
         
         public void ChangeMovementPattern(MovementPattern newMovementPattern)

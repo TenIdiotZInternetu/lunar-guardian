@@ -26,7 +26,12 @@ namespace Spawnables.Projectiles
 
         public void OnShoot()
         {
-            if (_bulletsShot >= bulletsInCharge) Recharge();
+            if (_bulletsShot >= bulletsInCharge)
+            {
+                Recharge();
+                return;
+            }
+            
             if (Time.time - _timeOfLastShot <= cooldown) return;
             
             ObjectPoolManager.Spawn(projectile, _thisTransform.position, _thisTransform.rotation);
