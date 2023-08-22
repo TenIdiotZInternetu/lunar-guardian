@@ -15,6 +15,7 @@ namespace MovementPatterns
         [SerializeField] private float acceleration;
         [SerializeField] private float amplitudeChange;
         [SerializeField] private float frequencyChange;
+        [SerializeField] private float phaseChange;
         [Separator]
         [SerializeField] private float axisRotation;
         
@@ -42,10 +43,11 @@ namespace MovementPatterns
             float currentSpeed = speed + acceleration * time;
             float currentAmplitude = amplitude + amplitudeChange * time;
             float currentFrequency = frequency + frequencyChange * time;
+            float currentPhase = phase + phaseChange * time;
             
             float distance = currentSpeed * time;
             Vector3 axisPosition = GetAxisPosition(distance);
-            Vector3 sinusoidPosition = GetSinusoidPosition(distance, currentAmplitude, currentFrequency);
+            Vector3 sinusoidPosition = GetSinusoidPosition(distance, currentAmplitude, currentFrequency, currentPhase);
             
             return axisPosition + sinusoidPosition;
         }
@@ -55,7 +57,7 @@ namespace MovementPatterns
             return _origin + _axisDirection * distance;
         }
         
-        private Vector3 GetSinusoidPosition(float t, float amplitude,float frequency)
+        private Vector3 GetSinusoidPosition(float t, float amplitude, float frequency, float phase)
         {
             float sineValue = amplitude * Mathf.Sin(frequency * t + phase);
             return _axisNormal * sineValue;
