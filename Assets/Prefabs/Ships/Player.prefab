@@ -48,7 +48,7 @@ MonoBehaviour:
   cooldown: 0.1
   isPlayers: 1
   chargeTime: 0
-  bulletsInCharge: 0
+  bulletsInCharge: 99999999
 --- !u!1 &1985297090948783827
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   cooldown: 0.1
   isPlayers: 1
   chargeTime: 0
-  bulletsInCharge: 0
+  bulletsInCharge: 9999999
 --- !u!1 &1985297092020893780
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +387,7 @@ MonoBehaviour:
   cooldown: 0.1
   isPlayers: 1
   chargeTime: 0
-  bulletsInCharge: 0
+  bulletsInCharge: 9999999
 --- !u!1 &1985297092554700916
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +761,7 @@ MonoBehaviour:
   cooldown: 0.1
   isPlayers: 1
   chargeTime: 0
-  bulletsInCharge: 0
+  bulletsInCharge: 99999999
 --- !u!1 &6316690914501646604
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +845,7 @@ MonoBehaviour:
   cooldown: 0.1
   isPlayers: 1
   chargeTime: 0
-  bulletsInCharge: 0
+  bulletsInCharge: 99999999
 --- !u!1 &9035194496740411873
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,4 +894,4 @@ MonoBehaviour:
   cooldown: 0.1
   isPlayers: 1
   chargeTime: 0
-  bulletsInCharge: 0
+  bulletsInCharge: 99999999
