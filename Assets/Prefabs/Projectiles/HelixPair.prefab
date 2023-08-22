@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8942460960287523235}
   - component: {fileID: -4614269680347780871}
+  - component: {fileID: 256358754266858482}
   m_Layer: 0
   m_Name: HelixPair
   m_TagString: Untagged
@@ -48,6 +49,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementPattern: {fileID: 0}
   SpawnKey: HelixPair
+--- !u!114 &256358754266858482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293168853160907910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa1bbd737dfcb749bdfb35827995610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 12
+  acceleration: 0
+  followsRotation: 0
+  directionInDegrees: 180
 --- !u!1001 &1057801916540737390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,18 +79,18 @@ PrefabInstance:
     - target: {fileID: 5665580739154380641, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
       propertyPath: movementPattern
       value: 
-      objectReference: {fileID: 1698098843103647843}
+      objectReference: {fileID: 7166276846372212670}
     - target: {fileID: 8582154056793412426, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8582154056793412426, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1699996
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8582154056793412426, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14700052
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8582154056793412426, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -127,14 +144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2490f8400dbb4c80bc7f49b08e368b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 12
   amplitude: 1
   frequency: 0.5
-  phase: -1.507
+  phase: 90
   acceleration: 0
   amplitudeChange: 0
   frequencyChange: 0
-  phaseChange: 0.5
+  phaseShift: 60
   axisRotation: 180
 --- !u!4 &8770758736386589732 stripped
 Transform:
@@ -162,11 +179,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8582154056793412426, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1699996
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8582154056793412426, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14700052
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8582154056793412426, guid: 8f4a6131ae3a6024285d9f4b29b49d31, type: 3}
       propertyPath: m_LocalPosition.z
@@ -220,14 +237,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2490f8400dbb4c80bc7f49b08e368b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 12
   amplitude: 1
   frequency: 0.5
-  phase: 1.507
+  phase: 270
   acceleration: 0
   amplitudeChange: 0
   frequencyChange: 0
-  phaseChange: 0.5
+  phaseShift: 60
   axisRotation: 180
 --- !u!4 &6239793479467238974 stripped
 Transform:

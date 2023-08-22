@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef13152d6444568bd9abcd6cc129da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 848127668604062856}
+  projectile: {fileID: 3293168853160907910, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
   cooldown: 0.2
   isPlayers: 0
   chargeTime: 3
@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 5535961813080982655}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -3.88, y: 3.3099992, z: 0}
-  m_LocalScale: {x: 1, y: 1.0468928, z: 1.1401327}
+  m_LocalScale: {x: 1, y: 1.0468928, z: 1.1401328}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2827163713954625330}
@@ -247,8 +247,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementPattern: {fileID: 0}
   SpawnKey: Helix
-  shootableSources:
-  - {fileID: 1648821091748751685}
   maxHealth: 20
   scoreReward: 1000
   drops:
@@ -256,6 +254,7 @@ MonoBehaviour:
     dropChance: 0.8
   - item: {fileID: 8533441571403884713, guid: 4b77a05d7ea955b4f91edeec464dd2a0, type: 3}
     dropChance: 0.5
+  weapon: {fileID: 2023655355}
   onTakesHitEvent:
     m_PersistentCalls:
       m_Calls:
@@ -271,6 +270,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  hasAggro: 0
 --- !u!50 &3041227693920864540
 Rigidbody2D:
   serializedVersion: 4
@@ -333,6 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2650548394708481201}
+  - component: {fileID: 2023655355}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -357,6 +358,18 @@ Transform:
   m_Father: {fileID: 5535961813080982652}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2023655355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6101521756133088474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5cced9675b4f82b2c9eaba0789af2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2771552159732996110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,9 +377,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2650548394708481201}
     m_Modifications:
+    - target: {fileID: 256358754266858482, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
+      propertyPath: speed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698098843103647843, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
+      propertyPath: phase
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 3293168853160907910, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
       propertyPath: m_Name
       value: HelixPair
+      objectReference: {fileID: 0}
+    - target: {fileID: 3293168853160907910, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4615695487397580815, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
+      propertyPath: movementPattern
+      value: 
+      objectReference: {fileID: 4973437249535694768}
+    - target: {fileID: 7166276846372212670, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
+      propertyPath: phase
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 8942460960287523235, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
       propertyPath: m_RootOrder
@@ -414,11 +447,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
---- !u!1 &848127668604062856 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3293168853160907910, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
+--- !u!114 &4973437249535694768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7166276846372212670, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
   m_PrefabInstance: {fileID: 2771552159732996110}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2490f8400dbb4c80bc7f49b08e368b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6515733241501489581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8942460960287523235, guid: 878edab43ef641d4592bbb21f991c8a2, type: 3}
