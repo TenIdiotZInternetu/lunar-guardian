@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using MovementPatterns;
+using MyBox;
 using PlayerScripts;
 using Spawnables;
 using Spawnables.Projectiles;
@@ -21,13 +22,11 @@ public class Enemy : Entity
     private const string PLAYER_PROJECTILE_TAG = "PlayerProjectile";
     private const string BORDER_TAG = "PlayfieldBorder";
     
-    
-    public List<GameObject> shootableSources;
     public int maxHealth;
-
     public int scoreReward;
     public List<LootDrop> drops;
 
+    public Weapon weapon;
     public event Action ShootsEvent;
     
     [SerializeField] private GameObjectEvent onTakesHitEvent;
@@ -38,22 +37,10 @@ public class Enemy : Entity
     void Start()
     {
         _currentHealth = maxHealth;
-        
-        foreach (var spawner in shootableSources)
-        {
-            var spawnerScript = spawner.GetComponent<IShootable>();
-            ShootsEvent += spawnerScript.OnShoot;
-        }
-        
+        weapon.HasAggro = hasAggro;
         BombController.OnBombDamageTick += (damage) => TakeDamage(damage, Player.Instance.gameObject);
     }
     
-    void Update()
-    {
-        base.Update();
-        if (hasAggro) ShootsEvent?.Invoke();
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         GameObject collidedObject = other.gameObject;
@@ -79,7 +66,7 @@ public class Enemy : Entity
     private void SwitchAggro()
     {
         hasAggro = !hasAggro;
-        
+        weapon.HasAggro = hasAggro;
     }
 
     public void TakeDamage(int damage, GameObject damageSource)
